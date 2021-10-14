@@ -14,6 +14,7 @@ namespace Eticaret2022.Controllers
     public class HomeController : BaseController
     {
         UnitOfWork uow = new UnitOfWork(new Eticaret2022Entities());
+        // deneme push
         public ActionResult Index()
         {
             var urunlist = uow.UrunlerRepository.GetAll();
