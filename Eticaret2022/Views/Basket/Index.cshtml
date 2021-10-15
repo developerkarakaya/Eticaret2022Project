@@ -1,0 +1,78 @@
+﻿@model Eticaret2022.BussinessLayer.Basket.Basket
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Urun adi</th>
+            <th>Urun Aciklama</th>
+            <th>UrunFiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Urun Sil</th>
+        </tr>
+    </thead>
+    @if (Model.BasketLines.Count > 0)
+    {
+
+        <tbody>
+            @foreach (var item in Model.BasketLines)
+            {
+                <tr>
+                    <td>@item.Urun.UrunAdi</td>
+                    <td>@item.Urun.UrunAciklama</td>
+                    <td>@item.Urun.UrunFiyat</td>
+                    <td>@item.Adet</td>
+                    <td>@((item.Urun.UrunFiyat * item.Adet).ToString())</td>
+                    <td><a onclick="urunsil(@item.Urun.Id)">Sepetten Çıkar</a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>@Model.TotalPrice().ToString("c")</td>
+                <td>
+                    <a onclick="sepetBosalt()">Sepeti Boşalt</a>
+                </td>
+            </tr>
+        </tfoot>
+    }
+    else{
+                <div class="alert-danger" >Sepette Ürün Bulunamadı</div>
+            }
+
+
+</table>
+<script>
+    function urunsil(Id) {
+
+        $.ajax({
+            method: "Post",
+            url: "/Basket/RemoveProduct",
+            data: { Id: Id },
+            dataType: 'json',
+            success: function (data) {
+                if (data.rtnValue == true) {
+                    window.location.reload();
+                }
+            }
+        });
+
+    }
+
+    function sepetBosalt() {
+        $.ajax({
+            method: "Post",
+            url: "/Basket/ClearBasket",
+            success: function (data) {
+                    window.location.reload();
+            }
+        });
+    }
+</script>

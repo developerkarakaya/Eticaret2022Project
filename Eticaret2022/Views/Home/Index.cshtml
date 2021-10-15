@@ -36,6 +36,7 @@
             <th>Urun Id</th>
             <th>Urun isim</th>
             <th>Urun Açıklama</th>
+            <th>Sepete Ekle</th>
         </tr>
     </thead>
     <tbody>
@@ -45,7 +46,25 @@
                 <td>@item.Id</td>
                 <td>@item.UrunAdi</td>
                 <td>@item.UrunAciklama</td>
+                <td><a onclick="basketEkle(@item.Id,1)" >Sepete Ekle</a></td>
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    function basketEkle(Id, adet) {
+
+        $.ajax({
+            method: "Post",
+            url: "/Basket/AddProduct",
+            data: { Id: Id, adet: adet },
+            dataType: 'json',
+            success: function (data) {
+                if (data.rtnValue == true) {
+                }
+            }
+        });
+
+    }
+</script>
