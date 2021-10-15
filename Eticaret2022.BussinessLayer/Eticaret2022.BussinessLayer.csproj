@@ -41,10 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basket\Basket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Manager\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eticaret2022.DataEntities\Eticaret2022.DataEntities.csproj">
+      <Project>{7ED0DF7B-B78C-4EE3-BC0B-42AC50D4E337}</Project>
+      <Name>Eticaret2022.DataEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
