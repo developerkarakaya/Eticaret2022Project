@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret2022.DataEntities",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret2022.BussinessLayer", "Eticaret2022.BussinessLayer\Eticaret2022.BussinessLayer.csproj", "{85B03AF7-0383-4CB1-87F7-AFDA80166863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret.Service", "Eticaret.Service\Eticaret.Service.csproj", "{6A19E95B-1AC5-4DF6-A05E-94AA4577A99B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret2022.Service", "Eticaret.Service\Eticaret2022.Service.csproj", "{6A19E95B-1AC5-4DF6-A05E-94AA4577A99B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

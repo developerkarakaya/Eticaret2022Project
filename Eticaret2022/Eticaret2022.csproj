@@ -261,9 +261,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Eticaret.Service\Eticaret.Service.csproj">
+    <ProjectReference Include="..\Eticaret.Service\Eticaret2022.Service.csproj">
       <Project>{6a19e95b-1ac5-4df6-a05e-94aa4577a99b}</Project>
-      <Name>Eticaret.Service</Name>
+      <Name>Eticaret2022.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Eticaret2022.BussinessLayer\Eticaret2022.BussinessLayer.csproj">
       <Project>{85b03af7-0383-4cb1-87f7-afda80166863}</Project>
