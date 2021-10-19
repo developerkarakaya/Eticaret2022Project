@@ -32,6 +32,13 @@ namespace Eticaret2022
                defaults: new { controller = "Account", action = "Register", id = UrlParameter.Optional },
                namespaces: new[] { "Eticaret2022.Controllers" }
            );
+
+            routes.MapRoute(
+             name: "hesabimRoute",
+             url: "Hesabim",
+             defaults: new { controller = "UserAccount", action = "ProfilBilgileri", id = UrlParameter.Optional },
+             namespaces: new[] { "Eticaret2022.Controllers" }
+         );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

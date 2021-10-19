@@ -173,6 +173,7 @@
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2563,6 +2564,8 @@
     <Content Include="Views\Shared\LoginPartial.cshtml" />
     <Content Include="Views\Home\HeaderTopMenu.cshtml" />
     <Content Include="Views\Home\deneme.cshtml" />
+    <Content Include="Views\UserAccount\_userAccountLayout.cshtml" />
+    <Content Include="Views\UserAccount\ProfilBilgileri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
