@@ -1,44 +1,870 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+    <title>eticaret</title>
+    <meta name='description' content="AÇIKLAMA GELECEK.">
+    <meta name='keywords' content="">
+    <meta name='title' content="ETİCARET">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no, minimal-ui">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="canonical" href="index.htm">
+    <meta name='copyright' content='Copyright © 2007 Programlama ContentSoft Akıllı E-Ticaret'>
+    <link rel='stylesheet' type='text/css' href='~/Site/js/storefront/assets/css/global.css?revision=js-2'>
+    <link rel='stylesheet' type='text/css' href='~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/css/theme.css?revision=js-1-1628781756'>
+    <script type='text/javascript' src='~/Site/js/storefront/assets/javascript/vendor/jquery-3.2.1.min.js?revision=js-2'></script>
+    <script type="text/javascript" src="~/Site/dosya/external/turkcell.js"></script>
+    <script type="text/javascript" src="~/Site/dosya/external/garantipay.js"></script>
+    <script type="text/javascript" src="~/Site/dosya/external/ajax_listeners.js"></script>
+    <style>
+        #checkout-gift-note {
+            display: none !important;
+        }
+
+            #checkout-gift-note.active-note {
+                display: block !important;
+            }
+
+        .heading {
+            position: fixed !important;
+            width: 100%;
+            z-index: 500;
+            top: 0;
+            left: 0;
+            background: white;
+            transition: all .1s ease-in;
+        }
+
+        .sub-category {
+            margin-top: 1px;
+        }
+
+            .sub-category ul li {
+                list-style-type: disc;
+            }
+
+        #sepet-click:hover {
+            cursor: pointer;
+        }
+
+        .button-user {
+            text-align: end;
+        }
+
+        @@media only screen and (max-width:767px ) {
+            .button-user {
+                text-align: start;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(document).scrollTop() <= 150) {
+                    $('#navigation').removeClass('heading');
+                } else {
+                    $('#navigation').addClass('heading');
+                }
+            });
+        });
+
+    </script>
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body class="current-page-default-entry" style="padding-right:1px !important">
+    <header id="header">
+        <div class="header-top" style="background-color: #3fba64;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="header-phone">
+                                <a href="tel:02128558510">
+
+                                    <i>
+                                        <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/images/icon-phone.svg" />
+                                    </i>
+                                    <span style="color:white">0212 855 85 10 </span>
+                                </a>
+                            </div>
+
+                            <div class="header-mail">
+                                <a href="mailto:destek@e-cerez.com">
+                                    <i>
+                                        <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/images/icon-mail.svg?revision=js-1-1628781756">
+                                    </i>
+                                    <span style="color:white">destek@eticaret.com</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 d-none d-lg-block">
+
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="header-phone">
+                            </div>
+
+                            <div class="header-mail">
+                                <div class="search">
+                                    <form action="" data-selector="search-form">
+                                        <input type="text" name="q" placeholder="Ne aramıştınız?" aria-label="Search" class="auto-complete" autocomplete="off">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </div>
+        <div class="header-middle">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4">
+                        <div class="logo">
+                            <a href="index.htm" aria-label="Logo">
+                                <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/logo.png?revision=1628781756" alt="E-çerez">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 button-user">
+
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            <form action="/Account/LogOff" method="post">
+
+                                <a href="Hesabim" class="btn btn-success "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+</svg> Hesabım</a>
+                                <button type="submit" class="btn btn-danger"> <i class="user-menu-profile-logout"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+</svg>  Çıkış Yap</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a href="/girisyap" class="btn btn-success " style="font-weight:bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+</svg> Giriş Yap</a>
+
+                            <a href="/kayitol" class="btn btn-outline-success" style="border:1px solid #3fba64; font-weight:bold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+</svg> Üye Ol</a>
+
+                        }
+
+
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="row align-items-center">
+                            <div class="col-4 d-block d-lg-none">
+                                <div class="toggle-bar" data-selector="toggle-bar"><svg style="margin-top:12px" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+</svg></div>
+                            </div>
+                            <div class="col-4 col-lg-6">
+                                <div class="user-menu">
+                                    <div class="openbox-overlay user-menu-content-overlay"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-4 col-lg-6">
+                                <div class="cart-menu">
+                                    <a data-toggle="modal" id="sepet-click" data-target="#exampleModal">
+                                        <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/images/icon-cart.svg?revision=js-1-1628781756">
+                                        @if ((Eticaret2022.BussinessLayer.Basket.Basket)Session["Basket"] != null)
+                                        {
+                                            var Model = (Eticaret2022.BussinessLayer.Basket.Basket)Session["Basket"];
+                                            if (Model != null)
+                                            {
+                                                <div class="cart-amount">@Model.BasketLines.Count</div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div class="cart-amount">0</div>
+
+                                        }
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{
+            Eticaret2022.DataEntities.UnitOfWork uow = new Eticaret2022.DataEntities.UnitOfWork(new Eticaret2022.DataEntities.Eticaret2022Entities());
+            var Kategoriler = uow.KategorilerRepository.GetAll();
+            var ModelMenu = Kategoriler;
+                <div class="header-bottom">
+                    <div class="container-fluid">
+
+                        <nav id="navigation">
+                            <div class="category-level-1">
+                                <ul>
+                                    @foreach (var item in ModelMenu.Where(ss => ss.KategoriUstId == 0).ToList())
+                                    {
+                                        <li class="has-sub-category" data-selector="first-level-navigation">
+                                            <a href="@item.KategoriHref" title="@item.KategoriAdi">
+                                                <span>@item.KategoriAdi</span>
+                                            </a>
+                                            <div class="sub-category category-level-2">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <ul>
+                                                            @foreach (var itemAlt in ModelMenu.Where(ss => ss.KategoriUstId == item.Id))
+                                                            {
+                                                                <li class="navigation-category-image">
+                                                                    <a href="@itemAlt.KategoriHref" title="@itemAlt.KategoriAdi">
+                                                                        <span>@itemAlt.KategoriAdi</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
+
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+
+                                    @foreach (var itemMenu in ModelMenu.Where(ss => ss.IsMenu == 1).ToList())
+                                    {
+                                        <li class="has-sub-category" data-selector="first-level-navigation">
+                                            <a href="@itemMenu.KategoriHref" title="@itemMenu.KategoriAdi">
+                                                <span>@itemMenu.KategoriAdi</span>
+                                            </a>
+                                        </li>
+
+                                    }
+
+                                </ul>
+                            </div>
+                        </nav>
+                        <script>
+                            var navigationMenu = {
+                                "settings": {
+                                    "columnWidth": 1230,
+                                    "numberOfColumns": 10,
+                                    "leftMargin": 0,
+                                    "menuEffect": "fade",
+                                    "openingEffect": "jswing",
+                                    "closingEffect": "jswing",
+                                    "openingSpeed": 200,
+                                    "closingSpeed": 100,
+                                    "useCategoryImage": 1,
+                                    "hideThirdLevelCategories": 0,
+                                    "thirdLevelCategoryCount": 0
+                                },
+                                "categories": [
+                                    {
+                                        "id": 217,
+                                        "name": "LOKUM & ŞEKERLEME",
+                                        "url": "/kategori/lokum-sekerleme",
+                                        "imageUrl": "//st3.myContentsoft.com/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/nopic_image.png?revision=1628781756",
+                                        "subCategories": [
+                                            {
+                                                "id": 229,
+                                                "name": "Çikolata",
+                                                "url": "/kategori/cikolata",
+                                                "imageUrl": "//st2.myContentsoft.com/Content/au/35/myassets/categories/229/_DTS2162.jpg?revision=1590448982",
+                                                "subCategories": []
+                                            },
+                                            {
+                                                "id": 224,
+                                                "name": "Lokum",
+                                                "url": "/kategori/lokum",
+                                                "imageUrl": "//st2.myContentsoft.com/Content/au/35/myassets/categories/224/g+-ll+- lokum.jpg?revision=1590448650",
+                                                "subCategories": []
+                                            },
+                                            {
+                                                "id": 226,
+                                                "name": "Pestil",
+                                                "url": "/kategori/pestil",
+                                                "imageUrl": "//st2.myContentsoft.com/Content/au/35/myassets/categories/226/Pestil.JPG?revision=1590448888",
+                                                "subCategories": []
+                                            },
+                                            {
+                                                "id": 225,
+                                                "name": "Şekerleme",
+                                                "url": "/kategori/sekerleme",
+                                                "imageUrl": "//st3.myContentsoft.com/Content/au/35/myassets/categories/225/Kay¦-s¦- +sekeri.jpg?revision=1590448762",
+                                                "subCategories": []
+                                            },
+                                            {
+                                                "id": 455,
+                                                "name": "Gofret",
+                                                "url": "/kategori/gofret",
+                                                "imageUrl": "//st3.myContentsoft.com/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/nopic_image.png?revision=1628781756",
+                                                "subCategories": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            };
+                        </script>
+
+                    </div>
+                </div>
+        }
+    </header>
+    <main id="main">
+        <div class="container">
+            <div class="row">
+                <section class="col-12">
+
+                    @RenderBody()
+
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer-row-1">
+            <div class="container">
+                <div class="shopping-banners">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                            <a href="sayfa/kargo-detaylari.html" class="shopping-banner">
+                                <div class="shopping-banner-img">
+                                    <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/shopping_banner_image_1.png?revision=js-1-1628781756" alt="">
+                                </div>
+                                <div class="shopping-banner-content">
+                                    <div class="shopping-banner-title">Aynı Gün Kargo</div>
+                                    <div class="shopping-banner-sub-title">15:00'e kadar gerçekleşen siparişlerde Aynı Gün Kargo</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                            <a href="sayfa/kargo-detaylari.html" class="shopping-banner">
+                                <div class="shopping-banner-img">
+                                    <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/shopping_banner_image_2.png?revision=js-1-1628781756" alt="">
+                                </div>
+                                <div class="shopping-banner-content">
+                                    <div class="shopping-banner-title">Ücretsiz Kargo</div>
+                                    <div class="shopping-banner-sub-title">120 TL ve üzeri alışverişlerinizde Kargo Bedava</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                            <a href="#" class="shopping-banner">
+                                <div class="shopping-banner-img">
+                                    <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/shopping_banner_image_3.png?revision=js-1-1628781756" alt="">
+                                </div>
+                                <div class="shopping-banner-content">
+                                    <div class="shopping-banner-title">Güvenli Alışveriş</div>
+                                    <div class="shopping-banner-sub-title">256Bit SSL Sertifikası ile güvenli alışverişin keyfini yaşayın</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
+                            <a href="#" class="shopping-banner">
+                                <div class="shopping-banner-img">
+                                    <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/uploads/shopping_banner_image_4.png?revision=js-1-1628781756" alt="">
+                                </div>
+                                <div class="shopping-banner-content">
+                                    <div class="shopping-banner-title">%100 Müşteri Memnuniyeti</div>
+                                    <div class="shopping-banner-sub-title">Stoklu Ürünler, Daima Taze, Koşulsuz İade</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-inside">
+            <div class="footer-row-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="footer-logo">
+                                <a href="index.htm" style="color:white" aria-label="Logo">
+                                LOGO GELECEK    
+                                </a>
+                            </div>
+
+                            <div class="footer-contact">
+                                <div class="footer-contact-title">Müşteri Hizmetleri</div>
+                                <div class="footer-contact-content">
+                                    <div class="footer-phone">
+                                        <a href="tel:02128558510">
+                                            <i>
+                                                <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/images/icon-phone.svg?revision=js-1-1628781756">
+                                            </i>
+                                            <span>0212 asda 85 10</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="footer-mail">
+                                        <a href="mailto:destek@e-sdsdsds.com">
+                                            <i>
+                                                <img src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/images/icon-mail.svg?revision=js-1-1628781756">
+                                            </i>
+                                            <span>destek@sdsds.com</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="footer-menu-container" data-menu-type="accordion">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="footer-menu">
+                                            <div class="footer-menu-title">
+                                                KURUMSAL
+                                            </div>
+                                            <div class="footer-menu-content">
+                                                <ul>
+                                                    <li><a href="sayfa/hakkimizda.html">Hakkımızda</a></li>
+                                                    <li><a href="sayfa/index-php-do-dynamic-view-pid-1.html">Satış Sözleşmesi</a><a li=""> </a></li>
+                                                    <li><a href="sayfa/index-php-do-dynamic-view-pid-2.html?do=dynamic/view&pid=2">Gizlilik ve Güvenlik</a></li>
+                                                    <li><a href="sayfa/index-php-do-dynamic-view-pid-3.html?do=dynamic/view&pid=3">İade Şartları</a></li>
+                                                    <li><a href="iletisim.html">İletişim</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="footer-menu">
+                                            <div class="footer-menu-title">
+                                                HESABIM
+                                            </div>
+                                            <div class="footer-menu-content">
+                                                <ul>
+                                                    <li><a href="uye-girisi.html">Giriş Yap</a></li>
+                                                    <li><a href="uye-girisi.html">Hesabım</a></li>
+                                                    <li><a href="uye-ol.html">Üye Ol</a></li>
+                                                    <li><a href="uye-girisi.html">Favorilerim</a></li>
+                                                    <li><a href="sepet.html">Sepetim</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </footer>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style=" font-weight: bold; text-align: center; color: #3fba64;" id="exampleModalLabel">Sepetim</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <style>
+
+                    .size span {
+                        font-size: 11px
+                    }
+
+                    .color span {
+                        font-size: 11px
+                    }
+
+                    .product-deta {
+                        margin-right: 70px
+                    }
+
+                    .gift-card:focus {
+                        box-shadow: none
+                    }
+
+                    .pay-button {
+                        color: #fff
+                    }
+
+                        .pay-button:hover {
+                            color: #fff
+                        }
+
+                        .pay-button:focus {
+                            color: #fff;
+                            box-shadow: none
+                        }
+
+                    .text-grey {
+                        color: #a39f9f
+                    }
+
+                    .qty i {
+                        font-size: 11px
+                    }
+
+                    .shopping-cart {
+                        padding-bottom: 50px;
+                        font-family: 'Montserrat', sans-serif;
+                    }
+
+                        .shopping-cart.dark {
+                            background-color: #f6f6f6;
+                        }
+
+                        .shopping-cart .content {
+                            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+                            background-color: white;
+                        }
+
+                        .shopping-cart .block-heading {
+                            padding-top: 50px;
+                            margin-bottom: 40px;
+                            text-align: center;
+                        }
+
+                            .shopping-cart .block-heading p {
+                                text-align: center;
+                                max-width: 420px;
+                                margin: auto;
+                                opacity: 0.7;
+                            }
+
+                        .shopping-cart .dark .block-heading p {
+                            opacity: 0.8;
+                        }
+
+                        .shopping-cart .block-heading h1,
+                        .shopping-cart .block-heading h2,
+                        .shopping-cart .block-heading h3 {
+                            margin-bottom: 1.2rem;
+                            color: #3b99e0;
+                        }
+
+                        .shopping-cart .items {
+                            margin: auto;
+                        }
+
+                            .shopping-cart .items .product {
+                                margin-bottom: 20px;
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                margin-left: 16px;
+                                border-bottom: 3px solid #3fba64;
+                            }
+
+                                .shopping-cart .items .product .info {
+                                    padding-top: 0px;
+                                    text-align: center;
+                                }
+
+                                    .shopping-cart .items .product .info .product-name {
+                                        font-weight: 600;
+                                    }
+
+                                        .shopping-cart .items .product .info .product-name .product-info {
+                                            font-size: 14px;
+                                            margin-top: 15px;
+                                        }
+
+                                            .shopping-cart .items .product .info .product-name .product-info .value {
+                                                font-weight: 400;
+                                            }
+
+                                    .shopping-cart .items .product .info .quantity .quantity-input {
+                                        margin: auto;
+                                        width: 80px;
+                                    }
+
+                                    .shopping-cart .items .product .info .price {
+                                        margin-top: 15px;
+                                        font-weight: bold;
+                                        font-size: 22px;
+                                    }
+
+                        .shopping-cart .summary {
+                            border-top: 2px solid green;
+                            background-color: #4db14d29;
+                            height: 100%;
+                            padding: 30px;
+                        }
+
+                            .shopping-cart .summary h3 {
+                                text-align: center;
+                                font-size: 1.3em;
+                                font-weight: 600;
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                            }
+
+                            .shopping-cart .summary .summary-item:not(:last-of-type) {
+                                padding-bottom: 10px;
+                                padding-top: 10px;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                            }
+
+                            .shopping-cart .summary .text {
+                                font-size: 1em;
+                                font-weight: 600;
+                            }
+
+                            .shopping-cart .summary .price {
+                                font-size: 1em;
+                                float: right;
+                            }
+
+                            .shopping-cart .summary button {
+                                margin-top: 20px;
+                            }
+
+                    @@media (min-width: 768px) {
+                        .shopping-cart .items .product .info {
+                            padding-top: 25px;
+                            text-align: left;
+                        }
+
+                            .shopping-cart .items .product .info .price {
+                                font-weight: bold;
+                                font-size: 22px;
+                                top: 17px;
+                            }
+
+                            .shopping-cart .items .product .info .quantity {
+                                text-align: center;
+                            }
+
+                                .shopping-cart .items .product .info .quantity .quantity-input {
+                                    padding: 4px 10px;
+                                    text-align: center;
+                                }
+                    }
+                </style>
+
+                @if ((Eticaret2022.BussinessLayer.Basket.Basket)Session["Basket"] != null)
+                {
+                    var Model = (Eticaret2022.BussinessLayer.Basket.Basket)Session["Basket"];
+                    <div class="modal-body">
+                        <section class="shopping-cart dark">
+                            <div class="container">
+                                <div class="content" style="padding:20px">
+                                    @if (Model.BasketLines.Count > 0)
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-8">
+                                                <div class="items">
+                                                    @if (Model.BasketLines.Count > 0)
+                                                    {
+                                                        foreach (var item in Model.BasketLines)
+                                                        {
+                                                            <div class="product">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <img class="img-fluid mx-auto d-block image" src="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262">
+                                                                    </div>
+                                                                    <div class="col-md-8">
+                                                                        <div class="info">
+                                                                            <div class="row">
+                                                                                <div class="col-md-5 product-name">
+                                                                                    <div class="product-name">
+                                                                                        <a href="#">@item.Urun.UrunAdi</a>
+                                                                                        <div class="product-info">
+                                                                                            <div>
+                                                                                                <a onclick="urunsil(@item.Urun.Id)" style="color:white" class="btn btn-danger">Sepetten Çıkar</a>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4 quantity">
+                                                                                    <label for="quantity">Adet</label>
+                                                                                    <input id="quantity" type="number" value="@item.Adet" class="form-control quantity-input">
+                                                                                </div>
+                                                                                <div class="col-md-3 price">
+                                                                                    <span style="font-size: 14px">
+                                                                                        @string.Format("{0:C2}", item.Urun.UrunFiyat)
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-4">
+                                                <div class="summary">
+                                                    <h3>Sepet Özeti</h3>
+                                                    <div class="summary-item"><span class="text">Toplam Ürün Sayısı</span><span class="price">@Model.BasketLines.Sum(ss => ss.Adet).ToString()</span></div>
+                                                    <div class="summary-item"><span class="text">Toplam Tutar</span><span class="price">@Model.TotalPrice().ToString("c")</span></div>
+                                                    <button type="button" class="btn btn-primary btn-lg btn-block">Ödeme Yap</button>
+                                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal">Alışverişe Devam Et</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <span style="padding: 20px; font-size: 18px;">
+                                            Sepette Ürün Bulunmamaktadır.<a href="/" style=" color: #3fba64">Buradan</a> Ürünleri İnceleyebilirsiniz.
+                                        </span>
+                                    }
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                }
+                else
+                {
+                    <span style="padding: 20px; font-size: 18px;">
+                        Sepette Ürün Bulunmamaktadır.<a href="/" style=" color: #3fba64">Buradan</a> Ürünleri İnceleyebilirsiniz.
+                    </span>
+                }
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
+    <div id="scroll-top"><i class="fas fa-chevron-up"></i></div>
+    <script type="text/javascript" src="https://unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/javascript/theme.js?revision=js-1-1628781756"></script>
+    <script type="text/javascript" src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/javascript/engine.js?revision=js-1-1628781756"></script>
+    <script type="text/javascript" src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/javascript/navigation-menu.js?revision=js-1-1628781756"></script>
+    <script type="text/javascript" src="~/Site/Content/au/35/themes/selftpl_5e65f69d82076/assets/javascript/instafeedmin.js?revision=js-1-1628781756"></script>
+    <script type='text/javascript' src='~/Site/js/storefront/assets/javascript/vendor/combined-base.min.js?revision=js-2'></script>
+    <script type="text/javascript" src="~/Site/js/storefront/assets/javascript/layout/default.js?revision=js-2"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Site/gtag/js.js?id=UA-93177519-1"></script>
+    <script async="" src="~/Site/gtag/js-1.js?id=AW-858587134"></script>
+    <script>
+        function ShowMessage(message, type) {
+            if (type == "s") {
+                swal({
+                    title: 'İşlem Başarılı',
+                    text: message,
+                    type: 'success',
+                    showCancelButtonClass: 'btn-success',
+                    confirmButtonText: 'Tamam'
+                });
+            }
+            else {
+                swal({
+                    title: 'İşlem Başarısız',
+                    text: message,
+                    type: 'error',
+                    showCancelButtonClass: 'btn-danger',
+                    confirmButtonText: 'Tamam'
+                });
+            }
+        }
+
+        $(function () {
+            $('.slider-4').not('.slick-initialized').slick({
+                infinite: false,
+                autoplay: true,
+                autoplaySpeed: 4500,
+                arrows: true,
+                dots: true,
+                speed: 1500,
+                fade: false,
+                prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>',
+                nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>'
+            });
+        });
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-93177519-1');
+        gtag('config', 'AW-858587134');
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-858587134');
+
+
+
+        function urunsil(Id) {
+            swal({
+                title: 'Silme İşlemi',
+                text: 'Seçtiğiniz ürünü sepetten çıkarmak istediğinizden emin misiniz? ',
+                type: 'warning',
+                showCancelButton: true,
+                confrimButtonClass: 'btn-danger',
+                confirmButtonText: 'Evet',
+                cancelButtonText: 'Hayır',
+                closeOnConfrim: false,
+                closeOnCancel: false
+            },
+                function (isConfrim) {
+                    if (isConfrim) {
+                        $.ajax({
+                            method: "Post",
+                            url: "/Basket/RemoveProduct",
+                            data: { Id: Id },
+                            dataType: 'json',
+                            success: function (data) {
+                                if (data.rtnValue == true) {
+                                    window.location.reload();
+                                    setTimeout(function () {
+                                        ShowMessage("Ürün Başarılı Bir Şekilde Sepetten Silindi !", "s");
+                                    }, 3000);
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        swal({ title: 'Kapatıldı', text: 'ürünü sepetten çıkarmaktan vazgeçtiniz.', type: 'error', confirmButtonText: 'Tamam' });
+                    }
+                }
+            );
+
+
+        }
+
+        function sepetBosalt() {
+            $.ajax({
+                method: "Post",
+                url: "/Basket/ClearBasket",
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

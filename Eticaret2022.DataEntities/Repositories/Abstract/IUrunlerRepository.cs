@@ -8,5 +8,6 @@ namespace Eticaret2022.DataEntities.Repositories.Abstract
 {
     public interface IUrunlerRepository:IRepository<Urunler>
     {
+        
     }
 }

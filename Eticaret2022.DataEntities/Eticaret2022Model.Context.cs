@@ -31,5 +31,6 @@ namespace Eticaret2022.DataEntities
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Urunler> Urunler { get; set; }
+        public virtual DbSet<Kategoriler> Kategoriler { get; set; }
     }
 }

@@ -2,10 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
-
 <table class="table">
     <thead>
         <tr>
@@ -48,30 +45,3 @@
 
 
 </table>
-<script>
-    function urunsil(Id) {
-
-        $.ajax({
-            method: "Post",
-            url: "/Basket/RemoveProduct",
-            data: { Id: Id },
-            dataType: 'json',
-            success: function (data) {
-                if (data.rtnValue == true) {
-                    window.location.reload();
-                }
-            }
-        });
-
-    }
-
-    function sepetBosalt() {
-        $.ajax({
-            method: "Post",
-            url: "/Basket/ClearBasket",
-            success: function (data) {
-                    window.location.reload();
-            }
-        });
-    }
-</script>

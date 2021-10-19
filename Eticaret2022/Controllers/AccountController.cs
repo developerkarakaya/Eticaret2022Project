@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Eticaret2022.Models;
 using Eticaret2022.Utils;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Eticaret2022.Controllers
 {
@@ -80,6 +81,11 @@ namespace Eticaret2022.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    var user = await UserManager.FindByNameAsync(model.Email);
+                    Eticaret2022.BussinessLayer.User.UserData userData = new BussinessLayer.User.UserData();
+                    userData.Email = user.Email;
+                    userData.Id = user.Id;
+                    Session.Add("Kullanici", (Eticaret2022.BussinessLayer.User.UserData)userData);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -92,9 +98,12 @@ namespace Eticaret2022.Controllers
             }
         }
 
-        //
-        // GET: /Account/VerifyCode
-        [AllowAnonymous]
+
+       
+
+            //
+            // GET: /Account/VerifyCode
+            [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Require that the user has already logged in via username/password or external login
@@ -389,10 +398,10 @@ namespace Eticaret2022.Controllers
         //
         // POST: /Account/LogOff
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session.RemoveAll();
             return RedirectToAction("Index", "Home");
         }
 
@@ -423,6 +432,8 @@ namespace Eticaret2022.Controllers
 
             base.Dispose(disposing);
         }
+
+        
 
         #region Helpers
         // Used for XSRF protection when adding external logins

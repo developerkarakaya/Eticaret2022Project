@@ -11,7 +11,6 @@ namespace Eticaret2022.Areas.yonetim
                 return "yonetim";
             }
         }
-
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
@@ -19,6 +18,7 @@ namespace Eticaret2022.Areas.yonetim
                 "yonetim/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

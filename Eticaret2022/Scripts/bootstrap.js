@@ -1192,13 +1192,11 @@ if (typeof jQuery === 'undefined') {
     this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
     this.scrollbarWidth = this.measureScrollbar()
   }
-
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
     this.originalBodyPad = document.body.style.paddingRight || ''
     var scrollbarWidth = this.scrollbarWidth
     if (this.bodyIsOverflowing) {
-      this.$body.css('padding-right', bodyPad + scrollbarWidth)
       $(this.fixedContent).each(function (index, element) {
         var actualPadding = element.style.paddingRight
         var calculatedPadding = $(element).css('padding-right')
@@ -1210,7 +1208,6 @@ if (typeof jQuery === 'undefined') {
   }
 
   Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', this.originalBodyPad)
     $(this.fixedContent).each(function (index, element) {
       var padding = $(element).data('padding-right')
       $(element).removeData('padding-right')

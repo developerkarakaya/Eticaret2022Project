@@ -1,0 +1,2401 @@
+﻿
+@{
+    ViewBag.Title = "deneme";
+}
+
+<div class="row">
+    <section id="checkout-section" class="col-12 col-md-8 col-lg-9">
+        <div id="checkout-breadcrumbs">
+            <div class="row">
+                <div class="checkout-steps checkout-back-link col-2 col-lg-1 pr-0">
+                    <a href="/sepet">
+                        <i class="fas fa-shopping-cart" data-toggle="tooltip" title="" data-original-title="Sepet sayfasına geri dön"></i>
+                    </a>
+                </div>
+                <div class="checkout-steps checkout-step-2 col-md col-4">
+                    <a href="/order/step2">
+                        <span>1.</span>
+                        <span>
+                            TESLİMAT BİLGİLERİ
+                            <div>Teslimat bilgileri giriniz</div>
+                        </span>
+                    </a>
+                </div>
+                <div class="checkout-steps checkout-step-3 col-md col-4">
+                    <a href="javascript:void(0);" class="active">
+                        <span>2.</span>
+                        <span>
+                            ÖDEME İŞLEMLERİ
+                            <div>Ödeme bilgilerini giriniz</div>
+                        </span>
+                    </a>
+                </div>
+                <div class="checkout-steps checkout-step-finished col-md col-4">
+                    <a href="javascript:void(0);">
+                        <span>3.</span>
+                        <span>
+                            SİPARİŞ ONAYI
+                            <div>Siparişinizin özeti</div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+        <div class="cart-block">
+            <div class="contentbox-header">
+                <h4>ÖDEME SEÇENEKLERİ</h4>
+            </div>            <div class="contentbox-body">
+                <div class="payment-tab">
+                    <div class="payment-tab-nav d-none d-md-flex" style="">
+                        <div class="payment-tab-nav-left">
+                            <div class="active mobile-item" data-selector="payment-tab" data-target="CreditCard" data-payment-button-title="SİPARİŞİ TAMAMLA" style="">
+                                <a href="javascript:void(0);">
+                                    KREDİ/BANKA KARTI
+
+                                </a>
+                            </div>
+                            <div class="mobile-item" data-selector="payment-tab" data-target="MoneyOrder" data-payment-button-title="SİPARİŞİ TAMAMLA" style="">
+                                <a href="javascript:void(0);">
+                                    HAVALE/EFT
+
+                                </a>
+                            </div>
+                            <div class="mobile-item" data-selector="payment-tab" data-target="GarantiPay" data-payment-button-title="GARANTİ PAY İLE ÖDE" style="">
+                                <a href="javascript:void(0);">
+                                    GARANTİ PAY
+
+                                </a>
+                            </div>
+                            <div class="mobile-item" data-selector="payment-tab" data-target="CodCash" data-payment-button-title="SİPARİŞİ TAMAMLA" style="">
+                                <a href="javascript:void(0);">
+                                    KAPIDA ÖDEME (NAKİT)
+
+                                </a>
+                            </div>
+                        </div>
+                        <div class="payment-tab-nav-right active">
+                            <a href="javascript:void(0);" data-selector="toggle-payment-tab-menu"><i class="fas fa-bars"></i></a>
+                            <div class="payment-tab-nav-menu">
+                                <div data-selector="payment-mobile-tab" data-target="CreditCard" data-payment-button-title="SİPARİŞİ TAMAMLA" class="active mobile-item">
+                                    <a href="javascript:void(0);">
+                                        KREDİ/BANKA KARTI
+
+                                    </a>
+                                </div>
+                                <div data-selector="payment-mobile-tab" data-target="MoneyOrder" data-payment-button-title="SİPARİŞİ TAMAMLA" class="mobile-item">
+                                    <a href="javascript:void(0);">
+                                        HAVALE/EFT
+
+                                    </a>
+                                </div>
+                                <div data-selector="payment-mobile-tab" data-target="GarantiPay" data-payment-button-title="GARANTİ PAY İLE ÖDE" class="mobile-item">
+                                    <a href="javascript:void(0);">
+                                        GARANTİ PAY
+
+                                    </a>
+                                </div>
+                                <div data-selector="payment-mobile-tab" data-target="CodCash" data-payment-button-title="SİPARİŞİ TAMAMLA" class="mobile-item">
+                                    <a href="javascript:void(0);">
+                                        KAPIDA ÖDEME (NAKİT)
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <select class="form-control" data-selector="payment-tab-select">
+                            <option data-target="CreditCard" data-payment-button-title="SİPARİŞİ TAMAMLA" class="active" selected="selected">
+                                KREDİ/BANKA KARTI
+
+                            </option>
+                            <option data-target="MoneyOrder" data-payment-button-title="SİPARİŞİ TAMAMLA" class="" selected="selected">
+                                HAVALE/EFT
+
+                            </option>
+                            <option data-target="GarantiPay" data-payment-button-title="GARANTİ PAY İLE ÖDE" class="" selected="selected">
+                                GARANTİ PAY
+
+                            </option>
+                            <option data-target="CodCash" data-payment-button-title="SİPARİŞİ TAMAMLA" class="" selected="selected">
+                                KAPIDA ÖDEME (NAKİT)
+
+                            </option>
+                        </select>
+                    </div>
+                    <div class="payment-tab-content">
+                        <div id="CreditCard" class="active">
+                            <form method="POST" data-selector="payment-form" spellcheck="false" novalidate="novalidate">
+                                <div id="recaptcha" class="g-recaptcha" data-sitekey="6LeTQtoZAAAAAIqop7pu3-dWWVpzFIOxnIIiybb-" data-callback="reCaptchaPaymentSubmit" data-size="invisible"><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s ease 0s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeTQtoZAAAAAIqop7pu3-dWWVpzFIOxnIIiybb-&amp;co=aHR0cHM6Ly93d3cuZS1jZXJlei5jb206NDQz&amp;hl=tr&amp;v=qljbK_DTcvY1PzbR7IG69z1r&amp;size=invisible&amp;cb=kohxojmzd255" width="256" height="60" role="presentation" name="a-9pr89puyd766" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                                <div class="row mb-3" data-selector="credit-card-box">
+                                    <div class="col-12 col-lg-5">
+                                        <div class="form-group">
+                                            <div class="custom-placeholder">
+                                                <input id="creditCardName" type="text" class="form-control" name="ccname" autocomplete="cc-name">
+                                                <label for="creditCardName" required="required">Kart Üzerindeki İsim</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group credit-card-number-row">
+                                            <div class="custom-placeholder mb-0">
+                                                <label for="creditCardNumber" required="required">Kart Numarası</label>
+                                                <input id="creditCardNumber" type="text" class="form-control" name="creditCardNumber" maxlength="19" autocomplete="cc-number">
+                                            </div>
+                                            <a href="javascript:void(0);" class="reset-card-number-link d-none" data-selector="reset-card-number">Kart numarasını değiştir</a>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-4">
+                                                <div class="custom-placeholder select-placeholder mb-3 focused">
+                                                    <select name="ccmonth" id="creditCardMonth" autocomplete="cc-exp-month" class="validate" aria-invalid="false">
+                                                        <option value="">* Ay</option>
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                    <label for="creditCardMonth" required="required">Ay</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="custom-placeholder select-placeholder mb-3 focused">
+                                                    <select name="ccyear" id="creditCardYear" autocomplete="cc-exp-year" class="validate" aria-invalid="false">
+                                                        <option value="">* Yıl</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                        <option value="31">31</option>
+                                                        <option value="32">32</option>
+                                                        <option value="33">33</option>
+                                                        <option value="34">34</option>
+                                                        <option value="35">35</option>
+                                                    </select>
+                                                    <label for="creditCardYear" required="required">Yıl</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="custom-placeholder mb-3">
+                                                    <input id="creditCardCvc" type="text" class="form-control" name="cvc2" maxlength="4" autocomplete="cc-csc">
+                                                    <label for="creditCardCvc" required="required">CVV</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-none" data-selector="optional-three-d">
+                                            <div class="checkbox-custom">
+                                                <input type="checkbox" id="use3d" name="use3d" value="1">
+                                                <label class="checkbox-custom-label" for="use3d">
+                                                    3D güvenlikli ödeme yapmak istiyorum
+                                                    <i class="icon-ios-information-outline masterTooltip" title="3D Secure, internetten güvenle alışveriş yapılabilmesi için Visa ve MasterCard'ın geliştirdiği ek bir kimlik doğrulama sistemidir. 3D Secure sistemi ile hem kart sahipleri hem de üye iş yerleri internet üzerinden yapılan dolandırıcılıklarına karşı güvence altına alınır."></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-none" data-selector="use-bonus">
+                                            <div class="checkbox-custom">
+                                                <input type="checkbox" id="useBonus" name="useBonus" value="1">
+                                                <label class="checkbox-custom-label" for="useBonus">
+                                                    Bonus puanlarımı kullanmak istiyorum
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-none" data-selector="bonus-info">
+                                            <div class="alert cart-alert"></div>
+                                        </div>
+                                        <div class="form-group d-none" data-selector="common-payment-info">
+                                            <div class="alert cart-alert">
+                                                <i class="fas fa-info-circle"></i>
+                                                ** Bankanız ortak ödeme sistemini desteklediği için, kart bilgileri banka ekranında alınacaktır.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-7">
+                                        <div class="payment-credit-card ym-hide-content">
+                                            <div class="card-logo">
+                                                <img src="//st2.myideasoft.com/7.1.7.0/storefront/assets/images/blank.png?revision=7.1.7.0-3" alt="" class="d-none">
+                                                <i class="far fa-credit-card"></i>
+                                            </div>
+                                            <div class="card-name"></div>
+                                            <div class="card-number"></div>
+                                            <div class="card-month">02</div>
+                                            <div class="card-year">34</div>
+                                            <div class="card-cvc"></div>
+                                            <div class="card-type-logo">
+                                                <img id="visa-card-logo" alt="visa" class="d-none" src="//st1.myideasoft.com/7.1.7.0/storefront/assets/images/card_type_logo/visa.png?revision=7.1.7.0-3">
+                                                <img id="master-card-logo" alt="mastercard" class="d-none" src="//st2.myideasoft.com/7.1.7.0/storefront/assets/images/card_type_logo/master_card.png?revision=7.1.7.0-3">
+                                                <img id="amex-logo" alt="amex" class="d-none" src="//st2.myideasoft.com/7.1.7.0/storefront/assets/images/card_type_logo/amex.png?revision=7.1.7.0-3">
+                                                <img id="troy-logo" alt="troy" class="d-none" src="//st1.myideasoft.com/7.1.7.0/storefront/assets/images/card_type_logo/troy.png?revision=7.1.7.0-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="contentbox-header">
+                                            <h4>TAKSİT SEÇİMİ</h4>
+                                        </div>                <div class="contentbox-body" data-selector="credit-card-installments">
+                                            <ul data-selector="installment-empty" class="mb-3">
+                                                <li>
+                                                    Kartınıza özel taksit opsiyonlarını görebilmek için, lütfen kart numarasını giriniz.
+                                                </li>
+                                            </ul>
+                                            <ul data-selector="installment-hall" class="mb-3 d-none" data-installment-lang="Taksit" data-first-installment-lang="Peşin"></ul>
+                                            <div class="form-group card-campaign d-none">
+                                                <div class="row">
+                                                    <div class="col-4 col-sm-2">
+                                                        <div class="card-campaign-image">
+                                                            <img src="//st1.myideasoft.com/7.1.7.0/storefront/assets/images/credit_card_logo/world_vadaa.png?revision=7.1.7.0-3" alt="world vadaa" data-selector="joker-vadaa">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8 col-sm-10">
+                                                        <div class="card-campaign-text">
+                                                            <div class="card-campaign-text-title">Vadaa Kampanyası</div>
+                                                            <div class="mb-3">Kart bilgilerinizi girdikten sonra Vadaa simgesine tıklayarak (+) taksit seçeneklerinden yararlanabilirsiniz.</div>
+                                                            <div class="card-campaign-list">
+                                                                <ul data-selector="joker-vadaa-box"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="posid">
+                                <input type="hidden" name="ccno1">
+                                <input type="hidden" name="ccno2">
+                                <input type="hidden" name="ccno3">
+                                <input type="hidden" name="ccno4">
+                                <input type="hidden" name="cctype" value="1">
+                                <input type="hidden" name="bonusPrice" disabled="disabled" value="0">
+                                <input type="hidden" name="three_d_status" value="passive">
+                                <input type="hidden" name="anticsrf" value="b74211b66555ca5b28ba3aacc8a9e62ec07256e5">
+                                <input type="hidden" value="0" name="paymentAgreementOk">
+                            </form>
+                        </div>
+
+
+                        <div id="MoneyOrder" class="">
+                            <form action="/index.php?do=catalog/exec&amp;ref=bt" method="POST" data-selector="payment-form">
+                                <ul>
+                                    <li class="active">
+                                        <div class="radio-custom">
+                                            <input type="radio" id="order-banks130" name="accselection" checked="" value="130">
+                                            <label for="order-banks130">
+                                                <div class="bank-logo">
+                                                    <img src="//st3.myideasoft.com/7.1.7.0/storefront/assets/images/bank_logo/garanti_bbva.png?revision=7.1.7.0-3" alt="Garanti BBVA">
+                                                </div>
+                                                <div class="bank-details">
+                                                    <div class="iban">
+                                                        IBAN: TR84 0006 2000 7820 0006 2958 37
+                                                    </div>
+                                                    <div class="detail">
+                                                        Hesap Sahibi: Eçerez Bilişim Gıda İth. İhr. San. ve Tic. Ltd. Şti.
+                                                        , Hesap Türü: Türk Lirası
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio-custom">
+                                            <input type="radio" id="order-banks131" name="accselection" value="131">
+                                            <label for="order-banks131">
+                                                <div class="bank-logo">
+                                                    <img src="//st3.myideasoft.com/7.1.7.0/storefront/assets/images/bank_logo/garanti_bbva.png?revision=7.1.7.0-3" alt="Garanti BBVA">
+                                                </div>
+                                                <div class="bank-details">
+                                                    <div class="iban">
+                                                        Hesap No: 6295837
+                                                    </div>
+                                                    <div class="detail">
+                                                        Şube Adı: Beylikdüzü Meydan
+
+                                                        , Şube Kodu: 782
+
+                                                        , Hesap Adı: Eçerez Bilişim Gıda İth. İhr. San. ve Tic. Ltd. Şti.
+
+                                                        , Hesap Türü: Türk Lirası
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio-custom">
+                                            <input type="radio" id="order-banks132" name="accselection" value="132">
+                                            <label for="order-banks132">
+                                                <div class="bank-logo">
+                                                    <img src="//st3.myideasoft.com/7.1.7.0/storefront/assets/images/bank_logo/t_is_bankasi.png?revision=7.1.7.0-3" alt="T. İş Bankası">
+                                                </div>
+                                                <div class="bank-details">
+                                                    <div class="iban">
+                                                        IBAN: TR04 0006 4000 0011 2450 1916 13
+                                                    </div>
+                                                    <div class="detail">
+                                                        Hesap Sahibi: Eçerez Bilişim Gıda İth. İhr. San. ve Tic. Ltd. Şti.
+                                                        , Hesap Türü: Türk Lirası
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="radio-custom">
+                                            <input type="radio" id="order-banks133" name="accselection" value="133">
+                                            <label for="order-banks133">
+                                                <div class="bank-logo">
+                                                    <img src="//st3.myideasoft.com/7.1.7.0/storefront/assets/images/bank_logo/t_is_bankasi.png?revision=7.1.7.0-3" alt="T. İş Bankası">
+                                                </div>
+                                                <div class="bank-details">
+                                                    <div class="iban">
+                                                        Hesap No: 191613
+                                                    </div>
+                                                    <div class="detail">
+                                                        Şube Adı: Beykent
+
+                                                        , Şube Kodu: 1245
+
+                                                        , Hesap Adı: Eçerez Bilişim Gıda İth. İhr. San. ve Tic. Ltd. Şti.
+
+                                                        , Hesap Türü: Türk Lirası
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <input type="hidden" name="anticsrf" value="b74211b66555ca5b28ba3aacc8a9e62ec07256e5">
+                                <input type="hidden" value="0" name="paymentAgreementOk">
+                            </form>
+                        </div>
+                        <div id="GarantiPay" class="">
+                            <form action="/index.php?do=catalog/exec&amp;ref=garantiPay" method="POST" data-selector="payment-form">
+                                <div class="row">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="gateway-logo">
+                                            <img src="//st2.myideasoft.com/7.1.7.0/storefront/assets/images/gateway_logo/garanti_pay.png?revision=7.1.7.0-3" alt="garanti pay">
+                                            <span>ile ödeyin</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8">
+                                        <div class="gateway-content">
+                                            <p>GarantiPay ile ödeme yapmak isterseniz;</p>
+                                            <ul>
+                                                <li><span>1</span>GarantiPay ödeme sayfasına yönlendirileceksiniz.</li>
+                                                <li><span>2</span>Açılan sayfada ilgili alana GSM veya TCKN girişi yapın.</li>
+                                                <li><span>3</span><div>Garanti BBVA mobil uygulamanıza bir işlem bildirimi gelir. <i class="text-danger">(*)</i></div></li>
+                                                <li><span>4</span>Mobil uygulama üzerinden kart seçimi yaparak işlemi tamamlayın.</li>
+                                                <li><span>5</span>İşlem sonrasında otomatik olarak bu siteye yönlendirileceksiniz.</li>
+                                            </ul>
+                                            <div class="gateway-subcontent">
+                                                <div>
+                                                    <i class="text-danger">(*)</i>
+                                                </div>
+                                                <div>
+                                                    <div>GarantiPay Ödeme Servisi şu an için sadece BonusFlaş uygulaması ile kullanılabilmektedir.</div>
+                                                    <div>Uygulama ile ilgili detaylara www.bonusflas.com.tr üzerinden ulaşabilirsiniz.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="anticsrf" value="b74211b66555ca5b28ba3aacc8a9e62ec07256e5">
+                                <input type="hidden" value="0" name="paymentAgreementOk">
+                            </form>
+                        </div>
+                        <div id="CodCash" class="">
+                            <form action="/index.php?do=catalog/exec&amp;ref=padCash" method="POST" data-shipping-company-id="2" data-selector="payment-form">
+                                <div class="row">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="gateway-logo">
+                                            <img src="//st2.myideasoft.com/7.1.7.0/storefront/assets/images/gateway_logo/cod_cash.jpg?revision=7.1.7.0-3" alt="kapıda ödeme nakit">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8">
+                                        <div class="gateway-content">
+                                            <p>Kapıda nakit ödeme yapmak isterseniz;</p>
+                                            <ul>
+                                                <li><span>1</span>Siparişinizi tamamlayın.</li>
+                                                <li><span>2</span>Kargonuz belirtmiş olduğunuz adrese gönderilsin.</li>
+                                                <li><span>3</span><div>Ürün bedelini teslimat sırasında <strong>nakit olarak</strong> ödeyin.</div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="anticsrf" value="b74211b66555ca5b28ba3aacc8a9e62ec07256e5">
+                                <input type="hidden" value="0" name="paymentAgreementOk">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-block">
+            <div class="contentbox-header">
+                <h4>YASAL BİLDİRİMLER</h4>
+            </div>                <div id="agreement-content" class="contentbox-body">
+                <div class="row">
+                    <div class="col-12 agreement-container">
+                        <div class="agreement mb-3">
+                            <div class="agreement-header" data-selector="agreement-toggle">
+                                <span>ÖN BİLGİLENDİRME FORMU</span>
+                                <a href="javascript:void(0);">
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
+                            </div>
+                            <div class="agreement-content">
+                                <div class="agreement-content-scroll" data-selector="notification">
+                                    <div>ÖN BİLGİLENDİRME FORMU</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>1.<span class="Apple-tab-span" style="white-space: pre;"></span>KONU</div>
+                                    <div>İşbu Satış Sözleşmesi Ön Bilgi Formu’nun konusu, SATICI' nın, SİPARİŞ VEREN/ALICI' ya satışını yaptığı, aşağıda nitelikleri ve satış fiyatı belirtilen ürün/ürünlerin satışı ve teslimi ile ilgili olarak 6502 sayılı Tüketicilerin Korunması Hakkındaki Kanun - Mesafeli Sözleşmeler Yönetmeliği (RG:27.11.2014/29188) hükümleri gereğince tarafların hak ve yükümlülüklerini kapsamaktadır. İş bu ön bilgilendirme formunu kabul etmekle ALICI, sözleşme konusu siparişi onayladığı takdirde sipariş konusu bedeli ve varsa kargo ücreti, vergi gibi belirtilen ek ücretleri ödeme yükümlülüğü altına gireceğini ve bu konuda bilgilendirildiğini peşinen kabul eder.</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>2. SATICI BİLGİLERİ</div>
+                                    <div>Ünvanı : <span style="font-weight: bold;">Eçerez Bilişim Gıda İthalat İhracat San ve Ticaret Ltd Şti</span></div>
+                                    <div>
+                                        Adres : <strong>
+                                            Pınartepe Mah. Avrupa Cad. Pınartepe Residence No:51AB C Blok /&nbsp;<br>
+                                            PK - 34500 Büyükçekmece - İstanbul/Turkey&nbsp;
+                                        </strong><br>
+                                    </div>
+                                    <div>Telefon : 0212 855 85 10</div>
+                                    <div>Faks : 0212 855 85 11</div>
+                                    <div>Eposta :&nbsp;<a href="mailto:{destek@e-cerez.com">destek@e-cerez.com</a></div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>3. ALICI BİLGİLERİ(Bundan sonra ALICI olarak anılacaktır.)</div>
+                                    <div>Teslim edilecek kişi : Samet Karakaya&nbsp;</div>
+                                    <div>Teslimat Adresi : sdfdsfdssfd - İstanbul - Ataşehir</div>
+                                    <div>Telefon : +90 (423) 423 42 34</div>
+                                    <div>Eposta/kullanıcı adı : sametkarakaya14@gmail.com</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>4. SÖZLEŞME KONUSU ÜRÜN/ÜRÜNLER BİLGİLERİ</div>
+                                    <div>4.1 Malın / Ürün/Ürünlerin / Hizmetin temel özellikleri (türü, miktarı, marka/modeli, rengi, adedi) SATICI’ya ait internet sitesinde yer almaktadır. Ürünün temel özelliklerini kampanya süresince inceleyebilirsiniz. Kampanya tarihine kadar geçerlidir.</div>
+                                    <div>4.2 Listelenen ve sitede ilan edilen fiyatlar satış fiyatıdır. İlan edilen fiyatlar ve vaatler güncelleme yapılana ve değiştirilene kadar geçerlidir. Süreli olarak ilan edilen fiyatlar ise belirtilen süre sonuna kadar geçerlidir.</div>
+                                    <div>4.3 Sözleşme konusu mal ya da hizmetin tüm vergiler dâhil satış fiyatı aşağıdaki tabloda gösterilmiştir.</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <table id="agrementproduct" border="0" cellpadding="0" cellspacing="0" width="80%">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Ürün Adı
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Adet
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Taksit
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Toplam Tutar
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            File Badem 250 Gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            29,63 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Toz Badem 250 Gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            29,63 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Badem İçi Kavrulmuş 250 Gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            37,87 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Badem İç Çiğ 250 Gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            37,04 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Haşhaşlı Leblebi 250 gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            11,94 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Ballı Susamlı  Leblebi 250 gr
+                                                        </span>
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            1
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            11,94 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            KDV
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px; float:left;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            &nbsp;
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            &nbsp;
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            12,64&nbsp;TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt; ">
+                                                            Kargo Ücreti
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px; float:left;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            &nbsp;
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            &nbsp;
+                                                        </span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt; ">
+                                                            0,00 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr><td colspan="6"></td></tr>
+                                                <tr><td colspan="6"><hr></td></tr>
+                                                <tr>
+                                                    <td width="40%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            Genel Toplam
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px; float:left;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            &nbsp;6
+                                                        </span>
+                                                    </td>
+                                                    <td width="10%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">&nbsp;</span>
+                                                    </td>
+                                                    <td width="20%" style="padding: 5px;">
+                                                        <span style="font-family: Arial; font-size: 8pt;">
+                                                            170,69 TL
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div><span class="Apple-tab-span" style="white-space: pre;"></span></div>
+                                    <div>Kargo Tutarı : 0,00 TL<span class="Apple-tab-span" style="white-space: pre;"></span></div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>Ödeme Şekli ve Planı :  Kredi Kartı </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>Ödenmiş toplam tutar : 170,69 TL</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>Teslimat Adresi : sdfdsfdssfd - İstanbul - Ataşehir</div>
+                                    <div>Fatura Adresi : sdfdsfdssfd - İstanbul / Ataşehir</div>
+                                    <div>Sipariş Tarihi : 19.10.21</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5. GENEL HÜKÜMLER</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.1. ALICI, SATICI’ya ait internet sitesinde sözleşme konusu ürünün temel nitelikleri, satış fiyatı ve ödeme şekli ile teslimata ilişkin ön bilgileri okuyup, bilgi sahibi olduğunu, elektronik ortamda gerekli teyidi verdiğini kabul, beyan ve taahhüt eder. ALICININ; Ön Bilgilendirmeyi elektronik ortamda teyit etmesi, mesafeli satış sözleşmesinin kurulmasından evvel, SATICI tarafından ALICI' ya verilmesi gereken adresi, siparişi verilen ürünlere ait temel özellikleri, ürünlerin vergiler dâhil fiyatını, ödeme ve teslimat bilgilerini de doğru ve eksiksiz olarak edindiğini kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.2. Sözleşme konusu her bir ürün, 30 günlük yasal süreyi aşmamak kaydı ile ALICI' nın yerleşim yeri uzaklığına bağlı olarak internet sitesindeki ön bilgiler kısmında belirtilen süre zarfında ALICI veya ALICI’ nın gösterdiği adresteki kişi ve/veya kuruluşa teslim edilir. Bu süre içinde ürünün ALICI’ya teslim edilememesi durumunda, ALICI’nın sözleşmeyi feshetme hakkı saklıdır.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.3. SATICI, sözleşme konusu ürünü eksiksiz, siparişte belirtilen niteliklere uygun ve varsa garanti belgeleri, kullanım kılavuzları ile teslim etmeyi, her türlü ayıptan arî olarak yasal mevzuat gereklerine sağlam, standartlara uygun bir şekilde işin gereği olan bilgi ve belgeler ile işi doğruluk ve dürüstlük esasları dâhilinde ifa etmeyi, hizmet kalitesini koruyup yükseltmeyi, işin ifası sırasında gerekli dikkat ve özeni göstermeyi, ihtiyat ve öngörü ile hareket etmeyi kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>5.4. SATICI, sözleşmeden doğan ifa yükümlülüğünün süresi dolmadan ALICI’yı bilgilendirmek ve açıkça onayını almak suretiyle eşit kalite ve fiyatta farklı bir ürün tedarik edebilir.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.5. SATICI, sipariş konusu ürün veya hizmetin yerine getirilmesinin imkânsızlaşması halinde sözleşme konusu yükümlülüklerini yerine getiremezse, bu durumu, öğrendiği tarihten itibaren 3 gün içinde yazılı olarak tüketiciye bildireceğini, 14 günlük süre içinde toplam bedeli ALICI’ya iade edeceğini kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.6. ALICI, sözleşme konusu ürünün teslimatı için işbu Ön Bilgilendirme Formunu elektronik ortamda teyit edeceğini, herhangi bir nedenle sözleşme konusu ürün bedelinin ödenmemesi ve/veya banka kayıtlarında iptal edilmesi halinde, SATICI’ nın sözleşme konusu ürünü teslim yükümlülüğünün sona ereceğini kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.7. ALICI, Sözleşme konusu ürünün ALICI veya ALICI’nın gösterdiği adresteki kişi ve/veya kuruluşa tesliminden sonra ALICI'ya ait kredi kartının yetkisiz kişilerce haksız kullanılması sonucunda sözleşme konusu ürün bedelinin ilgili banka veya finans kuruluşu tarafından SATICI'ya ödenmemesi halinde, ALICI Sözleşme konusu ürünü 3 gün içerisinde nakliye gideri SATICI’ya ait olacak şekilde SATICI’ya iade edeceğini kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>5.8. SATICI, tarafların iradesi dışında gelişen, önceden öngörülemeyen ve tarafların borçlarını yerine getirmesini engelleyici ve/veya geciktirici hallerin oluşması gibi mücbir sebepler halleri nedeni ile sözleşme konusu ürünü süresi içinde teslim edemez ise, durumu ALICI' ya bildireceğini kabul, beyan ve taahhüt eder. ALICI da siparişin iptal edilmesini, sözleşme konusu ürünün varsa emsali ile değiştirilmesini ve/veya teslimat süresinin engelleyici durumun ortadan kalkmasına kadar ertelenmesini SATICI’ dan talep etme hakkına haizdir. ALICI tarafından siparişin iptal edilmesi halinde ALICI’ nın nakit ile yaptığı ödemelerde, ürün tutarı 14 gün içinde kendisine nakden ve defaten ödenir. ALICI’ nın kredi kartı ile yaptığı ödemelerde ise, ürün tutarı, siparişin ALICI tarafından iptal edilmesinden sonra 14 gün içerisinde ilgili bankaya iade edilir. ALICI, SATICI tarafından kredi kartına iade edilen tutarın banka tarafından ALICI hesabına yansıtılmasına ilişkin ortalama sürecin 2 ile 3 haftayı bulabileceğini, bu tutarın bankaya iadesinden sonra ALICI’ nın hesaplarına yansıması halinin tamamen banka işlem süreci ile ilgili olduğundan, ALICI, olası gecikmeler için SATICI’ yı sorumlu tutamayacağını kabul, beyan ve taahhüt eder.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>6. FATURA BİLGİLERİ</div>
+                                    <div>Ad/Soyad/Unvan : Samet Karakaya</div>
+                                    <div>Adres : sdfdsfdssfd - İstanbul - Ataşehir</div>
+                                    <div>Telefon : +90 (423) 423 42 34</div>
+                                    <div>Eposta/kullanıcı adı : sametkarakaya14@gmail.com</div>
+                                    <div>Fatura teslim : Fatura sipariş teslimatı sırasında fatura adresine sipariş ile birlikte&nbsp;</div>
+                                    <div>teslim edilecektir.</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>7. CAYMA HAKKI</div>
+                                    <div>7.1. ALICI; mal satışına ilişkin mesafeli sözleşmelerde, ürünün kendisine veya gösterdiği adresteki kişi/kuruluşa teslim tarihinden itibaren 14 (on dört) gün içerisinde, SATICI’ya bildirmek şartıyla hiçbir hukuki ve cezai sorumluluk üstlenmeksizin ve hiçbir gerekçe göstermeksizin malı reddederek sözleşmeden cayma hakkını kullanabilir. Hizmet sunumuna ilişkin mesafeli sözleşmelerde ise, bu süre sözleşmenin imzalandığı tarihten itibaren başlar. Cayma hakkı süresi sona ermeden önce, tüketicinin onayı ile hizmetin ifasına başlanan hizmet sözleşmelerinde cayma hakkı kullanılamaz. Cayma hakkının kullanımından kaynaklanan masraflar SATICI’ ya aittir. ALICI, iş bu sözleşmeyi kabul etmekle, cayma hakkı konusunda bilgilendirildiğini peşinen kabul eder.</div>
+                                    <div>7.2. Cayma hakkının kullanılması için 14 (ondört) günlük süre içinde SATICI' ya iadeli taahhütlü posta, faks veya eposta ile yazılı bildirimde bulunulması ve ürünün işbu sözleşmede düzenlenen düzenlenen "Cayma Hakkı Kullanılamayacak Ürünler" hükümleri çerçevesinde kullanılmamış olması şarttır. Bu hakkın kullanılması halinde,&nbsp;</div>
+                                    <div>7.2.1 3. kişiye veya ALICI’ ya teslim edilen ürünün faturası, (İade edilmek istenen ürünün faturası kurumsal ise, geri iade ederken kurumun düzenlemiş olduğu iade faturası ile birlikte gönderilmesi gerekmektedir. Faturası kurumlar adına düzenlenen sipariş iadeleri İADE FATURASI kesilmediği takdirde tamamlanamayacaktır.)&nbsp;</div>
+                                    <div>7.2.2. İade formu,&nbsp;</div>
+                                    <div>7.2.3. İade edilecek ürünlerin kutusu, ambalajı, varsa standart aksesuarları ile birlikte eksiksiz ve hasarsız olarak teslim edilmesi gerekmektedir.&nbsp;</div>
+                                    <div>7.2.4. SATICI, cayma bildiriminin kendisine ulaşmasından itibaren en geç 10 günlük süre içerisinde toplam bedeli ve ALICI’ yı borç altına sokan belgeleri ALICI’ ya iade etmek ve 20 günlük süre içerisinde malı iade almakla yükümlüdür.&nbsp;</div>
+                                    <div>7.2.5. ALICI’ nın kusurundan kaynaklanan bir nedenle malın değerinde bir azalma olursa veya iade imkânsızlaşırsa ALICI kusuru oranında SATICI’ nın zararlarını tazmin etmekle yükümlüdür. Ancak cayma hakkı süresi içinde malın veya ürünün usulüne uygun kullanılmasın sebebiyle meydana gelen değişiklik ve bozulmalardan ALICI sorumlu değildir.&nbsp;</div>
+                                    <div>7.2.6. Cayma hakkının kullanılması nedeniyle SATICI tarafından düzenlenen kampanya limit tutarının altına düşülmesi halinde kampanya kapsamında faydalanılan indirim miktarı iptal edilir.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>8. CAYMA HAKKI KULLANILAMAYACAK ÜRÜNLER</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>8.1. a) Fiyatı finansal piyasalardaki dalgalanmalara bağlı olarak değişen ve satıcı veya sağlayıcının kontrolünde olmayan mal veya hizmetlere ilişkin sözleşmeler.</div>
+                                    <div>b) Tüketicinin istekleri veya kişisel ihtiyaçları doğrultusunda hazırlanan mallara ilişkin sözleşmeler.</div>
+                                    <div>c) Çabuk bozulabilen veya son kullanma tarihi geçebilecek malların teslimine ilişkin sözleşmeler.</div>
+                                    <div>ç) Tesliminden sonra ambalaj, bant, mühür, paket gibi koruyucu unsurları açılmış olan mallardan; iadesi sağlık ve hijyen açısından uygun olmayanların teslimine ilişkin sözleşmeler.</div>
+                                    <div>d) Tesliminden sonra başka ürünlerle karışan ve doğası gereği ayrıştırılması mümkün olmayan mallara ilişkin sözleşmeler.</div>
+                                    <div>e) Malın tesliminden sonra ambalaj, bant, mühür, paket gibi koruyucu unsurları açılmış olması halinde maddi ortamda sunulan kitap, dijital içerik ve bilgisayar sarf malzemelerine, veri kaydedebilme ve veri depolama cihazlarına &nbsp;ilişkin sözleşmeler.</div>
+                                    <div>f) Abonelik sözleşmesi kapsamında sağlananlar dışında, gazete ve dergi gibi süreli yayınların teslimine ilişkin sözleşmeler.</div>
+                                    <div>g) Belirli bir tarihte veya dönemde yapılması gereken, konaklama, eşya taşıma, araba kiralama, yiyecek-içecek tedariki ve eğlence veya dinlenme amacıyla yapılan boş zamanın değerlendirilmesine ilişkin sözleşmeler.</div>
+                                    <div>ğ) Elektronik ortamda anında ifa edilen hizmetler veya tüketiciye anında teslim edilen gayrimaddi mallara ilişkin sözleşmeler.</div>
+                                    <div>h) Cayma hakkı süresi sona ermeden önce, tüketicinin onayı ile ifasına başlanan hizmetlere ilişkin sözleşmeler.</div>
+                                    <div>Kozmetik ve kişisel bakım ürünleri, iç giyim ürünleri, mayo, bikini, kitap, kopyalanabilir yazılım ve programlar, DVD, VCD, CD ve kasetler ile kırtasiye sarf malzemeleri (toner, kartuş, şerit vb.) iade edilebilmesi için ambalajlarının açılmamış, denenmemiş, bozulmamış ve kullanılmamış olmaları gerekir.&nbsp;</div>
+                                    <div>8.2. SATICI şikâyet ve itirazları konusunda başvurularını, &nbsp;aşağıdaki kanunda belirtilen parasal sınırlar dâhilinde tüketicinin yerleşim yerinin bulunduğu &nbsp;veya tüketici işleminin yapıldığı yerdeki &nbsp;tüketici sorunları hakem heyetine veya tüketici mahkemesine yapabilir. Parasal sınıra ilişkin bilgiler aşağıdadır:&nbsp;</div>
+                                    <div>28/05/2014 tarihinden itibaren geçerli olmak üzere:&nbsp;</div>
+                                    <div>a) 6502 sayılı Tüketicinin Korunması Hakkında Kanun’un 68. Maddesi gereği değeri 2.000,00 (ikibin) TL’nin altında olan uyuşmazlıklarda ilçe tüketici hakem heyetlerine,</div>
+                                    <div>b) Değeri 3.000,00(üçbin)TL’ nin altında bulunan uyuşmazlıklarda il tüketici hakem heyetlerine,</div>
+                                    <div>c) Büyükşehir statüsünde bulunan illerde ise değeri 2.000,00 (ikibin) TL ile 3.000,00(üçbin)TL’ &nbsp;arasındaki uyuşmazlıklarda il tüketici hakem heyetlerine başvuru yapılmaktadır.</div>
+                                    <div>İşbu Sözleşme ticari amaçlarla yapılmaktadır.&nbsp;</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>SATICI: Eçerez Bilişim Gıda İthalat İhracat San ve Ticaret Ltd Şti</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>ALICI: Samet Karakaya</div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>TARİH: 19.10.21</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 agreement-container">
+                        <div class="agreement mb-3">
+                            <div class="agreement-header" data-selector="agreement-toggle">
+                                <span>MESAFELİ SATIŞ SÖZLEŞMESİ</span>
+                                <a href="javascript:void(0);">
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
+                            </div>
+                            <div class="agreement-content">
+                                <div class="agreement-content-scroll" data-selector="sales">
+                                    <div>MESAFELİ SATIŞ SÖZLEŞMESİ</div>
+                                    <div>
+                                        <br>
+                                    </div><span style="font-family: Arial; font-size: 8pt;"></span><span style="font-family: Arial; font-size: 8pt;">
+                                        MADDE 1- TARAFLAR <br>
+                                        <br>
+                                        1.1- SATICI:<br>
+                                        <br>
+                                        Ünvanı : Eçerez Bilişim Gıda İthalat İhracat San ve Ticaret Ltd Şti
+                                    </span><br>
+                                    <span style="font-family: Arial; font-size: 8pt;">Adresi : </span><span style="font-family: Arial; font-size: 8pt;">&nbsp;<strong>Pınartepe Mah. Avrupa Cad. No:51 C Blok AB Büyükçekmece/İST</strong>&nbsp;</span><br>
+                                    <span style="font-family: Arial; font-size: 8pt;">
+                                        Telefon :&nbsp;<strong>0212 855 85 10</strong><br>
+                                        Fax :&nbsp;<strong>0212 855 85 11</strong>
+                                    </span><span style="font-family: Arial; font-size: 8pt;">
+                                        <br>
+                                        E-mail:<strong>destek@e-cerez.com</strong>&nbsp;
+                                    </span><br>
+                                    <span style="font-family: Arial; font-size: 8pt;">
+                                        <br>
+                                        1.2- ALICI:
+                                    </span>
+                                    <div id="div_hucre">
+                                        <span style="font-family: Arial;">
+                                            <br>
+                                        </span><span style="font-family: Arial; font-size: 8pt;">
+                                            Adı/Soyadı/Ünvanı : Samet Karakaya <br>
+                                            Adresi:
+                                        </span><span style="font-family: Arial; font-size: 8pt;">sdfdsfdssfd - İstanbul - Ataşehir</span><br>
+                                        <span style="font-family: Arial; font-size: 8pt;">
+                                            Telefon:+90 (423) 423 42 34<br>
+                                            E-mail:sametkarakaya14@gmail.com<br>
+                                            Tc No:14180572660<br>
+                                        </span>
+                                    </div>&nbsp;<br>
+                                    <span style="font-family: Arial; font-size: 8pt;">
+                                        MADDE 2- KONU <br>
+                                        <br>
+                                        İşbu
+                                        sözleşmenin konusu, ALICI'nın SATICI'ya ait { <strong>e-cerez.com</strong> } internet
+                                        sitesinden elektronik ortamda siparişini yaptığı aşağıda nitelikleri ve
+                                        satış fiyatı belirtilen ürünün satışı ve teslimi ile ilgili olarak 4077
+                                        sayılı Tüketicilerin Korunması Hakkındaki Kanun ve Mesafeli Sözleşmeleri
+                                        Uygulama Esas ve Usulleri Hakkında Yönetmelik hükümleri gereğince
+                                        tarafların hak ve yükümlülüklerinin saptanmasıdır. <br>
+                                        <br>
+                                        MADDE 3- SÖZLEŞME KONUSU ÜRÜN <br>
+                                    </span><span style="font-family: Arial; font-size: 8pt;">
+                                        <br>
+                                        Tarih :19.10.21
+                                    </span><br>
+                                    <span style="font-family: Arial; font-size: 8pt;">
+                                        <br>
+                                    </span>    <table id="agrementproduct" border="0" cellpadding="0" cellspacing="0" width="80%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Ürün Adı
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Adet
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Taksit
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Toplam Tutar
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        File Badem 250 Gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        29,63 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Toz Badem 250 Gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        29,63 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Badem İçi Kavrulmuş 250 Gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        37,87 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Badem İç Çiğ 250 Gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        37,04 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Haşhaşlı Leblebi 250 gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        11,94 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Ballı Susamlı  Leblebi 250 gr
+                                                    </span>
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        1
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        11,94 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        KDV
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px; float:left;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        &nbsp;
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        &nbsp;
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        12,64&nbsp;TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt; ">
+                                                        Kargo Ücreti
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px; float:left;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        &nbsp;
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        &nbsp;
+                                                    </span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt; ">
+                                                        0,00 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr><td colspan="6"></td></tr>
+                                            <tr><td colspan="6"><hr></td></tr>
+                                            <tr>
+                                                <td width="40%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        Genel Toplam
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px; float:left;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        &nbsp;6
+                                                    </span>
+                                                </td>
+                                                <td width="10%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">&nbsp;</span>
+                                                </td>
+                                                <td width="20%" style="padding: 5px;">
+                                                    <span style="font-family: Arial; font-size: 8pt;">
+                                                        170,69 TL
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <br>
+
+                                    <div><span class="Apple-tab-span" style="white-space: pre;"></span></div>
+                                    <div>Kargo Tutarı : 0,00 TL<span class="Apple-tab-span" style="white-space: pre;"></span></div><br>
+                                    <span style="font-family: Arial; font-size: 8pt;"></span><span style="font-family: Arial; font-size: 8pt;"></span><span style="font-family: Arial; font-size: 8pt;">
+                                        Ürünlerin cinsi ve türü,miktarı,marka/modeli rengi satış bedeli yukarıda belirtildiği gibidir.<br>
+                                        &nbsp;<br>
+                                        Ödeme şekli:  Kredi Kartı <br>
+                                        Teslimat adresi: sdfdsfdssfd - İstanbul - Ataşehir<br>
+                                        Ödenmiş toplam tutar : 170,69 TL
+                                    </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">MADDE 4- GENEL HÜKÜMLER</span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">&nbsp;</span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.1-
+                                        ALICI, www.e-cerez.com internet sitesinde sözleşme konusu ürünün temel
+                                        nitelikleri, satış fiyatı ve ödeme şekli ile teslimata ilişkin ön
+                                        bilgileri okuyup bilgi sahibi olduğunu ve elektronik ortamda gerekli
+                                        teyidi verdiğini beyan eder.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.2- Sözleşme konusu ürün, yasal 30
+                                        günlük süreyi aşmamak koşulu ile her bir ürün için ALICI'nın yerleşim
+                                        yerinin uzaklığına bağlı olarak internet sitesinde ön bilgiler içinde
+                                        açıklanan süre içinde ALICI veya gösterdiği adresteki kişi/kuruluşa
+                                        teslim edilir.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.3- Sözleşme konusu ürün, ALICI'dan başka bir
+                                        kişi/kuruluşa teslim edilecek ise, teslim edilecek kişi/kuruluşun
+                                        teslimatı kabul etmemesininden SATICI sorumlu tutulamaz.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.4- SATICI, sözleşme konusu ürünün sağlam, eksiksiz, siparişte belirtilen
+                                        niteliklere uygun ve varsa garanti belgeleri ve kullanım klavuzları ile
+                                        teslim edilmesinden sorumludur.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.5- Sözleşme konusu ürünün
+                                        teslimatı için işbu sözleşmenin imzalı nüshasının SATICI'ya ulaştırılmış
+                                        olması ve bedelinin ALICI'nın tercih ettiği ödeme şekli ile ödenmiş olması şarttır. Herhangi bir nedenle ürün bedeli ödenmez veya banka
+                                        kayıtlarında iptal edilir ise, SATICI ürünün teslimi yükümlülüğünden
+                                        kurtulmuş kabul edilir.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.6- Ürünün tesliminden sonra ALICI'ya ait
+                                        kredi kartının ALICI'nın kusurundan kaynaklanmayan bir şekilde yetkisiz
+                                        kişilerce haksız veya hukuka aykırı olarak kullanılması nedeni ile
+                                        ilgili banka veya finans kuruluşun ürün bedelini SATICI'ya ödememesi
+                                        halinde, ALICI'nın kendisine teslim edilmiş olması kaydıyla ürünün 3 gün
+                                        içinde SATICI'ya gönderilmesi zorunludur. Bu takdirde nakliye giderleri
+                                        ALICI'ya aittir.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.7- SATICI mücbir sebepler veya nakliyeyi
+                                        engelleyen hava muhalefeti, ulaşımın kesilmesi gibi olağanüstü durumlar
+                                        nedeni ile sözleşme konusu ürünü süresi içinde teslim edemez ise, durumu
+                                        ALICI'ya bildirmekle yükümlüdür. Bu takdirde ALICI siparişin iptal
+                                        edilmesini, sözleşme konusu ürünün varsa emsali ile değiştirilmesini,
+                                        ve/veya teslimat süresinin engelleyici durumun ortadan kalkmasına kadar
+                                        ertelenmesi haklarından birini kullanabilir. ALICI'nın siparişi iptal
+                                        etmesi halinde ödediği tutar 10 gün içinde kendisine nakten ve defaten
+                                        ödenir.
+                                    </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        4.8- Garanti belgesi ile satılan ürünlerden olan veya
+                                        olmayan ürünlerin arızalı veya bozuk olanlar, garanti şartları içinde
+                                        gerekli onarımın yapılması için SATICI'ya gönderilebilir, bu takdirde
+                                        kargo giderleri SATICI tarafından karşılanacaktır.
+                                    </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">MADDE 5- CAYMA HAKKI </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        ALICI,
+                                        sözleşme konusu ürürünün kendisine veya gösterdiği adresteki
+                                        kişi/kuruluşa tesliminden itibaren 7 gün içinde cayma hakkına sahiptir.
+                                        Cayma hakkının kullanılması için bu süre içinde SATICI'ya faks, email
+                                        veya telefon ile bildirimde bulunulması ve ürünün 6. madde hükümleri
+                                        çercevesinde kullanılmamış olması şarttır. Bu hakkın kullanılması halinde, 3. kişiye veya ALICI'ya teslim edilen ürünün SATICI'ya
+                                        gönderildiğine ilişkin kargo teslim tutanağı örneği ile fatura aslının
+                                        iadesi zorunludur. Bu belgelerin ulaşmasını takip eden 7 gün içinde ürün
+                                        bedeli ALICI'ya iade edilir. Fatura aslı gönderilmez ise KDV ve varsa
+                                        sair yasal yükümlülükler iade edilemez. Cayma hakkı nedeni ile iade
+                                        edilen ürünün kargo bedeli SATICI tarafından karşılanır.
+                                    </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">MADDE 6- CAYMA HAKKI KULLANILAMAYACAK ÜRÜNLER </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        Niteliği
+                                        itibarıyla iade edilemeyecek ürünler, tek kullanımlık ürünler,
+                                        kopyalanabilir yazılım ve programlar, hızlı bozulan veya son kullanım
+                                        tarihi geçen ürünler için cayma hakkı kullanılamaz. Aşağıdaki ürünlerde
+                                        cayma hakkının kullanılması, ürünün ambalajının açılmamış, bozulmamış ve
+                                        ürünün kullanılmamış olması şartına bağlıdır.
+                                    </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-Taşınabilir Bilgisayar (Orijinal işletim sitemi kurulduktan sonra iade alınmayacaktır.) </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-Her türlü yazılım ve programlar </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-DVD, VCD, CD ve kasetler </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-Bilgisayar ve kırtasiye sarf malzemeleri (toner, kartuş, şerit v.b) </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-Hür türlü kozmetik ürünleri </span><br>
+                                    <span style="font-size: 8pt; font-family: Arial;">-Telefon kontör siparişleri </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">MADDE 7- YETKİLİ MAHKEME </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">
+                                        İşbu
+                                        sözleşmenin uygulanmasında, Sanayi ve Ticaret Bakanlığınca ilan edilen
+                                        değere kadar Tüketici Hakem Heyetleri ile ALICI'nın veya SATICI'nın
+                                        yerleşim yerindeki Tüketici Mahkemeleri yetkilidir.
+                                    </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">Siparişin gerçekleşmesi durumunda ALICI işbu sözleşmenin tüm koşullarını kabul etmiş sayılır. </span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">SATICI </span><br>
+                                    <br>
+                                    <span style="font-size: 10.6667px; font-family: Arial;">Eçerez Bilişim Gıda İthalat İhracat San ve Ticaret Ltd Şti</span><br>
+                                    <br>
+                                    <span style="font-size: 8pt; font-family: Arial;">ALICI</span><br>
+                                    <br>
+                                    <span style="font-family: Arial; font-size: 8pt;">Samet Karakaya </span><br>
+                                    <span style="font-family: Arial;">&nbsp;</span><span style="font-family: Arial; font-size: 8pt;">
+                                        <br>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contentbox-body">
+                <div class="alert cart-alert mb-0">
+                    <strong data-selector="payment-button-title">"SİPARİŞİ TAMAMLA"</strong>
+                    butonuna basmanız halinde, seçmiş olduğunuz ödeme yöntemine uygun olarak, toplam <strong data-selector="total-amount">
+                        170,69 TL
+                    </strong> tahsil edilecektir.
+                </div>
+            </div>
+        </div>
+    </section>
+    <aside id="checkout-aside" class="col-12 col-md-4 col-lg-3 pl-md-0">
+        <div id="checkout-aside-fixed">
+            <div id="checkout-cart-panel" class="cart-block">
+                <div class="contentbox-header">
+                    <h4>SEPET ÖZETİ</h4>
+                </div>    <div class="contentbox-body">
+                    <div id="cart-summary">
+                        <div id="cart-details">
+                            <div class="cart-details-button">
+                                <a href="javascript:void(0);" data-selector="toggle-cart-items">
+                                    <i class="fas fa-caret-down"></i>
+                                    Sepetteki Ürünler
+                                </a>
+                                <a href="javascript:void(0);" data-selector="return-cart-page">
+                                    <i class="fas fa-pen"></i>
+                                    düzenle
+                                </a>
+                            </div>
+                            <div id="cart-items">
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/file-badem-250-gr-1" target="_blank">
+                                            <img src="//st2.myideasoft.com/idea/au/35/myassets/products/400/dsc-0520_min.jpg?rev=1586206733" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/file-badem-250-gr-1" target="_blank">
+                                                File Badem 250 Gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/toz-badem-250-gr-1" target="_blank">
+                                            <img src="//st2.myideasoft.com/idea/au/35/myassets/products/396/dsc-0515_min.jpg?rev=1586206724" alt="File Badem 250 Gr">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/toz-badem-250-gr-1" target="_blank">
+                                                Toz Badem 250 Gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/badem-ici-kavrulmus-250-gr-1" target="_blank">
+                                            <img src="//st2.myideasoft.com/idea/au/35/myassets/products/205/badem-kavrulmus_min.jpg?rev=1586206336" alt="Toz Badem 250 Gr">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/badem-ici-kavrulmus-250-gr-1" target="_blank">
+                                                Badem İçi Kavrulmuş 250 Gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/badem-ic-cig-250-gr-1" target="_blank">
+                                            <img src="//st2.myideasoft.com/idea/au/35/myassets/products/866/badem-cig_min.jpg?rev=1586205763" alt="Badem İçi Kavrulmuş 250 Gr">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/badem-ic-cig-250-gr-1" target="_blank">
+                                                Badem İç Çiğ 250 Gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/hashasli-leblebi-250-gr" target="_blank">
+                                            <img src="//st1.myideasoft.com/idea/au/35/myassets/products/746/hashasli-leblebi-removebg-preview_min.png?rev=1586351252" alt="Badem İç Çiğ 250 Gr">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/hashasli-leblebi-250-gr" target="_blank">
+                                                Haşhaşlı Leblebi 250 gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="cart-picture">
+                                        <a href="/urun/balli-susamli-leblebi-250-gr" target="_blank">
+                                            <img src="//st3.myideasoft.com/idea/au/35/myassets/products/743/balli-susamli-leblebi-removebg-preview_min.png?rev=1586351046" alt="Haşhaşlı Leblebi 250 gr">
+                                        </a>
+                                    </div>
+                                    <div class="cart-details">
+                                        <div class="cart-details-title">
+                                            <a href="/urun/balli-susamli-leblebi-250-gr" target="_blank">
+                                                Ballı Susamlı  Leblebi 250 gr
+                                            </a>
+                                        </div>
+                                        <div class="cart-details-quantity">
+                                            1 Adet
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cart-panel-amount-details">
+
+
+
+
+                            <div class="cart-panel-row">
+                                <span>Ara Toplam</span>
+                                <span>
+                                    158,05 TL
+                                </span>
+                            </div>
+                            <div class="cart-panel-row">
+                                <span>KDV</span>
+                                <span>
+                                    12,64 TL
+                                </span>
+                            </div>
+                            <div class="cart-panel-row">
+                                <span>KDV Dahil</span>
+                                <span>
+                                    170,69 TL
+                                </span>
+                            </div>
+                            <div class="cart-panel-row">
+                                <span>Kargo</span>
+                                <span>
+                                    0,00 TL
+                                </span>
+                            </div>
+                            <div class="cart-panel-row">
+                                <span>Kazanılacak Puan</span>
+                                <span>
+                                    17069 Puan
+                                </span>
+                            </div>
+                            <div class="cart-panel-row cart-summary-total-price">
+                                <span>Toplam</span>
+                                <span>
+                                    <span id="cart-total-amount" data-general-amount="170,69" data-final-amount="170,69">
+                                        170,69 TL
+                                    </span>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="checkbox-custom agreement-checkbox">
+                            <input type="checkbox" id="agreement" name="agreement">
+                            <label for="agreement">
+                                Ön bilgilendirme formunu ve mesafeli satış sözleşmesini kabul ediyorum.
+                            </label>
+                        </div>
+                        <div class="cart-panel-buttons form-group">
+                            <button class="btn btn-block btn-primary btn-CreditCard" data-selector="submit-button"><i class="btn-CreditCard"></i>SİPARİŞİ TAMAMLA</button>
+                        </div>
+                        <div class="cart-panel-secure-logo">
+                            <img src="//st1.myideasoft.com/7.1.7.0/storefront/assets/images/secure.png?revision=7.1.7.0-3" data-toggle="tooltip" data-placement="bottom" title="" alt="Bu sitede yapacağınız alışveriş işlemleri 256bit SSL ile korunmaktadır" data-original-title="Bu sitede yapacağınız alışveriş işlemleri 256bit SSL ile korunmaktadır">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-block" id="order-panel-shipping-body">
+                <div class="contentbox-header">
+                    <h4>TESLİMAT BİLGİLERİ<a href="javascript:void(0);" class="address-edit-button" data-message-text="Teslimat bilgilerinizi düzenlemek için teslimat bilgileri sayfasına yönlendirileceksiniz."><i class="fas fa-pen"></i>düzenle</a></h4>
+                </div>                <div class="contentbox-body">
+                    <p>Dfsdfsdf Dsfsfdsfsd</p>
+                    <div>
+                        sdfdsfdssfd
+                    </div>
+                    <div>
+                        Ataşehir / İstanbul / Türkiye
+                    </div>
+                </div>
+            </div>
+            <div class="cart-block" id="order-panel-billing-body">
+                <div class="contentbox-header">
+                    <h4>FATURA BİLGİLERİ<a href="javascript:void(0);" class="address-edit-button" data-message-text="Fatura bilgilerinizi düzenlemek için teslimat bilgileri sayfasına yönlendirileceksiniz."><i class="fas fa-pen"></i> düzenle</a></h4>
+                </div>                <div class="contentbox-body">
+                    <p>Dfsdfsdf Dsfsfdsfsd</p>
+                    <div>
+                        sdfdsfdssfd
+                    </div>
+                    <div>
+                        Ataşehir / İstanbul / Türkiye
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <aside class="col-12 col-md-4 col-lg-3">
+            <div id="left-block">
+                <div class="block-item" data-type="member-menu">
+                    <div class="block-item-title">
+                        <span>Kullanıcı Menüsü</span>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="block-item-content">
+                        <ul class="member-block">
+                            <li class="member-block-title">
+                                <strong>Hoş Geldiniz</strong>
+                                <span><strong>Samet Karakaya</strong></span>
+                                <span>
+                                    Son Giriş : 19-10-2021 13:29:44
+                                </span>
+                            </li>
+                            <li class="member-block-sub-title">Hesabım</li>
+                            <li>
+                                <a href="/hesabim/duzenle" title="Üye Bilgilerim" class="active">
+                                    <i class="left-icons fa fa-user"></i>
+                                    Üye Bilgilerim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hesabim/adres-defteri" title="Adres Defteri">
+                                    <i class="left-icons fas fa-address-card"></i>
+                                    Adres Defteri
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="javascript:void(0);" title="Alışveriş Sepetim">
+                                    <i class="left-icons fas fa-shopping-cart"></i>
+                                    Alışveriş Sepetim
+                                    <i class="right-icons fas fa-angle-up"></i>
+                                </a>
+                                <ul style="display: block;">
+                                    <li>
+                                        <a href="/sepet" title="Alışveriş Sepetim">
+                                            Alışveriş Sepetim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" title="Alışveriş Sepetimi Kaydet" data-selector="save-member-cart">
+                                            Alışveriş Sepetimi Kaydet
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" title="Kayıtlı Alışveriş Sepetimi Yükle" data-selector="load-member-cart">
+                                            Kayıtlı Alışveriş Sepetimi Yükle
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" title="Sipariş ve İade">
+                                    <i class="left-icons fas fa-clipboard-list"></i>
+                                    Sipariş ve İade
+                                    <i class="right-icons fas fa-angle-down"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/hesabim/siparisler" title="Siparişlerim">
+                                            Siparişlerim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/hesabim/iade-ve-iptal-taleplerim" title="İade ve İptal Taleplerim">
+                                            İade ve İptal Taleplerim
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <i class="left-icons fas fa-dollar-sign"></i>
+                                    Ödemelerim
+                                    <i class="right-icons fas fa-angle-down"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="/hesabim/odemelerim" title="Ödemelerim">
+                                            Ödemelerim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/odeme" title="Ödeme Sistemi">
+                                            Ödeme Sistemi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/hesabim/odeme-talimat-formu" title="Ödeme Talimat Formu">
+                                            Ödeme Talimat Formu
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/hesabim/favorilerim" title="Favori Ürünlerim">
+                                    <i class="left-icons fa fa-heart"></i>
+                                    Favori Ürünlerim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hesabim/havale-bildirim" title="Havale Bildirim Formu">
+                                    <i class="left-icons fas fa-envelope"></i>
+                                    Havale Bildirim Formu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hesabim/puan-hediye-ceki" title="Puanlarım ve Hediye Çeklerim">
+                                    <i class="left-icons fas fa-gift"></i>
+                                    Puanlarım ve Hediye Çeklerim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cikis" title="Güvenli Çıkış">
+                                    <i class="left-icons fas fa-sign-out-alt"></i>
+                                    <strong>Güvenli Çıkış</strong>
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+        <section class="col-12 col-md-8 col-lg-9">
+            <div class="contentbox-header">
+                <h4>Profilimi Güncelle</h4>
+            </div>    <div class="contentbox-body">
+                <form class="form-horizontal" action="" method="POST" data-selector="edit-profile-form" novalidate="novalidate">
+                    <input type="hidden" name="anticsrf" value="159bf38e836891a7e158751c6df8c7dc7e061b25">
+                    <div class="contentbox-block">
+                        <div class="contentbox-sub-title">Üye Bilgilerim</div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Adı</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="firstname" class="form-control" name="firstname" value="Samet" autocomplete="given-name">
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Soyadı</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="surname" class="form-control" name="surname" value="Karakaya" autocomplete="family-name">
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Email</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="email" id="email" class="form-control" name="email" value="sametkarakaya14@gmail.com" autocomplete="email">
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Doğum Tarihi</label>
+                            <div class="col-12 col-lg-5">
+                                <div class="input-group input-group-right">
+                                    <input type="text" id="birthdate" class="form-control" name="birthdate" value="27-08-1998" data-selector="birth-date" data-required="1" autocomplete="bday" maxlength="10">
+                                    <div class="input-group-addon">
+                                        <label class="far fa-calendar-alt" for="birthdate"></label>
+                                    </div>
+                                </div>
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label mt-0 mb-0">Cinsiyet</label>
+                            <div class="col-12 col-lg-5">
+                                <div class="radio-custom-groups">
+                                    <div class="radio-custom">
+                                        <input type="radio" id="gender-male" value="male" name="gender[]" checked="" autocomplete="sex">
+                                        <label for="gender-male">Erkek</label>
+                                    </div>
+                                    <div class="radio-custom">
+                                        <input type="radio" id="gender-female" value="female" name="gender[]" autocomplete="sex">
+                                        <label for="gender-female">Kadın</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Telefon</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="tel" id="phone" class="form-control" name="phone" maxlength="19" value="" autocomplete="tel-national">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Cep Telefonu</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="tel" id="cell" class="form-control" name="cell" maxlength="19" value="+90 (463) 473 48 34" autocomplete="tel-national">
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group row ym-hide-content">
+                            <label class="col-12 col-lg-4 control-label">T.C Kimlik No</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="tc_id" class="form-control" name="tcId" pattern="\d*" maxlength="11" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbox-block">
+                        <div class="contentbox-sub-title">Adres Düzenle</div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Ülke / Şehir </label>
+                            <div class="col-12 col-lg-5">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="selectbox">
+                                            <select class="form-control" id="country" name="country" data-selector="change-country" autocomplete="country">
+                                                <option value="4" data-country-code="DE">Almanya</option>
+                                                <option value="51" data-country-code="FR">Fransa</option>
+                                                <option value="65" data-country-code="NL">Hollanda</option>
+                                                <option value="69" data-country-code="GB">İngiltere</option>
+                                                <option value="170" data-country-code="CY">KKTC</option>
+                                                <option selected="" value="1" data-country-code="TR">Türkiye</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div data-selector="location-wrapper">
+                                            <div class="selectbox">
+                                                <select class="form-control" name="location" data-selector="change-location" autocomplete="shipping address-line2">
+                                                    <option value="">Seçiniz</option>
+                                                    <option value="5">Adana</option>
+                                                    <option value="6">Adıyaman</option>
+                                                    <option value="7">Afyon</option>
+                                                    <option value="8">Ağrı</option>
+                                                    <option value="9">Aksaray</option>
+                                                    <option value="10">Amasya</option>
+                                                    <option value="3">Ankara</option>
+                                                    <option value="11">Antalya</option>
+                                                    <option value="12">Ardahan</option>
+                                                    <option value="13">Artvin</option>
+                                                    <option value="14">Aydın</option>
+                                                    <option value="15">Balıkesir</option>
+                                                    <option value="16">Bartın</option>
+                                                    <option value="17">Batman</option>
+                                                    <option value="18">Bayburt</option>
+                                                    <option value="19">Bilecik</option>
+                                                    <option value="20">Bingöl</option>
+                                                    <option value="21">Bitlis</option>
+                                                    <option value="22">Bolu</option>
+                                                    <option value="23">Burdur</option>
+                                                    <option value="24">Bursa</option>
+                                                    <option value="25">Çanakkale</option>
+                                                    <option value="26">Çankırı</option>
+                                                    <option value="27">Çorum</option>
+                                                    <option value="28">Denizli</option>
+                                                    <option value="29">Diyarbakır</option>
+                                                    <option value="82">Düzce</option>
+                                                    <option value="30">Edirne</option>
+                                                    <option value="31">Elazığ</option>
+                                                    <option value="32">Erzincan</option>
+                                                    <option value="33">Erzurum</option>
+                                                    <option value="34">Eskişehir</option>
+                                                    <option value="35">Gaziantep</option>
+                                                    <option value="36">Giresun</option>
+                                                    <option value="37">Gümüşhane</option>
+                                                    <option value="38">Hakkari</option>
+                                                    <option value="39">Hatay</option>
+                                                    <option value="40">Iğdır</option>
+                                                    <option value="41">Isparta</option>
+                                                    <option value="1" selected="">İstanbul</option>
+                                                    <option value="4">İzmir</option>
+                                                    <option value="54">Kahramanmaraş</option>
+                                                    <option value="55">Karabük</option>
+                                                    <option value="56">Karaman</option>
+                                                    <option value="43">Kars</option>
+                                                    <option value="44">Kastamonu</option>
+                                                    <option value="45">Kayseri</option>
+                                                    <option value="57">Kilis</option>
+                                                    <option value="46">Kırıkkale</option>
+                                                    <option value="47">Kırklareli</option>
+                                                    <option value="48">Kırşehir</option>
+                                                    <option value="49">Kocaeli</option>
+                                                    <option value="50">Konya</option>
+                                                    <option value="51">Kütahya</option>
+                                                    <option value="52">Malatya</option>
+                                                    <option value="53">Manisa</option>
+                                                    <option value="58">Mardin</option>
+                                                    <option value="42">Mersin</option>
+                                                    <option value="59">Muğla</option>
+                                                    <option value="60">Muş</option>
+                                                    <option value="61">Nevşehir</option>
+                                                    <option value="62">Niğde</option>
+                                                    <option value="63">Ordu</option>
+                                                    <option value="64">Osmaniye</option>
+                                                    <option value="65">Rize</option>
+                                                    <option value="66">Sakarya</option>
+                                                    <option value="67">Samsun</option>
+                                                    <option value="75">Şanlıurfa</option>
+                                                    <option value="68">Siirt</option>
+                                                    <option value="69">Sinop</option>
+                                                    <option value="70">Sivas</option>
+                                                    <option value="76">Şırnak</option>
+                                                    <option value="71">Tekirdağ</option>
+                                                    <option value="72">Tokat</option>
+                                                    <option value="73">Trabzon</option>
+                                                    <option value="74">Tunceli</option>
+                                                    <option value="77">Uşak</option>
+                                                    <option value="78">Van</option>
+                                                    <option value="79">Yalova</option>
+                                                    <option value="80">Yozgat</option>
+                                                    <option value="81">Zonguldak</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">İlçe</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="town" name="town" class="form-control" autocomplete="shipping address-line2" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Adres</label>
+                            <div class="col-12 col-lg-5">
+                                <textarea class="form-control" id="address" name="address" autocomplete="shipping street-address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Ticari Ünvanı</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="cName" class="form-control" name="cName" value="" autocomplete="shipping organization">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Vergi No</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="taxId" class="form-control" name="taxId" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Vergi Dairesi</label>
+                            <div class="col-12 col-lg-5">
+                                <input type="text" id="taxPlace" class="form-control" name="taxPlace" autocomplete="on" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbox-block">
+                        <div class="contentbox-sub-title">Şifre Değişimi</div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Yeni Şifre</label>
+                            <div class="col-12 col-lg-5">
+                                <div class="checkbox-custom-groups">
+                                    <div class="checkbox-custom">
+                                        <input type="checkbox" id="new-password" name="newpass[]" value="1" data-selector="change-password">
+                                        <label for="new-password">Yeni Şifre</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group d-none" data-selector="new-password-wrapper">
+                            <div class="row">
+                                <label class="col-12 col-lg-4 control-label">Şifre</label>
+                                <div class="col-12 col-lg-5">
+                                    <input type="password" id="pass" class="form-control" name="pass" autocomplete="new-password" value="">
+                                    <div class="form-question" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Şifre sadece alfanumerik karaterler içerebilir,Türkçe karakter ve boşluk içeremez."><i class="fa fa-info-circle"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-12 col-lg-4 control-label">Mail Listesi</label>
+                            <div class="col-12 col-lg-5">
+                                <div class="checkbox-custom-groups">
+                                    <div class="checkbox-custom">
+                                        <input type="checkbox" id="campaignStatus" name="campaignStatus[]" value="1" checked="">
+                                        <label for="campaignStatus" data-target="#campaignStatus">
+                                            <a href="javascript:void(0);" data-fancybox="" data-src="#personal-data-agreement-wrapper"><u>Aydınlatma Metninde belirtilen ilkeler nezdinde Elektronik Ticaret İletisi almak istiyorum.</u></a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbox-block">
+                        <div class="form-group row">
+                            <div class="col-12 col-lg-9 text-right">
+                                <div class="btn-group-binary">
+                                    <button type="button" class="btn btn-secondary mr-2" data-selector="return-back">
+                                        Geri
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" data-selector="edit-profile-form-button">
+                                        Kaydet
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="personal-data-agreement-wrapper">
+                <div class="contentbox-header">
+                    <h4>Üye ve Ziyaretçi Kişisel Veri Aydınlatma Metni</h4>
+                </div>
+                <style type="text/css">
+<!--
+@@page { margin: 0.79in }
+    p { margin-bottom: 0.1in; border: none; padding: 0in; line-height: 120%; text-align: left; page-break-inside: auto; orphans: 2; widows: 2; page-break-after: auto }
+    a:link { so-language: zxx }
+-->
+                </style>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            KİŞİSEL
+                            VERİLERİN KORUNMASI HAKKINDA BİLGİLENDİRME
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Gerek
+                        web sitemizi kullanırken, gerekse başka yollarla tarafımıza
+                        iletmiş olduğunuz kişisel bilgilerinizin güvenliğinin
+                        sağlanmasına son derece önem vermektedir. 6698 Sayılı "Kişisel
+                        Verilerin Korunması Kanunu” yürürlüğe girmiştir. Anılan
+                        mevzuat ve bu mevzuatta belirtilen bir takım tanımlar hakkında
+                        sizi bilgilendirmek isteriz:
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            Kişisel
+                            veri
+                        </span>
+                    </span><span new="" times="" serif;"="" roman",="">
+                        :
+                        Kimliği belirli veya belirlenebilir gerçek kişiye ilişkin her
+                        türlü bilgiyi,
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            Kişisel
+                            verilerin İşlenmesi	:
+                        </span>
+                    </span><span new="" times="" serif;"="" roman",="">
+                        Kişisel verilerin tamamen veya kısmen otomatik olan ya da herhangi
+                        bir veri kayıt sisteminin parçası olmak kaydıyla otomatik olmayan
+                        yollarla elde edilmesi, kaydedilmesi, depolanması, muhafaza
+                        edilmesi, değiştirilmesi, yeniden düzenlenmesi, açıklanması,
+                        aktarılması, devralınması, elde edilebilir hâle getirilmesi,
+                        sınıflandırılması ya da kullanılmasının engellenmesi gibi
+                        veriler üzerinde gerçekleştirilen her türlü işlemi,
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            Veri
+                            işleyen			:
+                        </span>
+                    </span><span new="" times="" serif;"="" roman",="">
+                        Veri sorumlusunun verdiği yetkiye dayanarak onun adına kişisel
+                        verileri işleyen gerçek veya tüzel kişiyi,
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            Veri
+                            kayıt sistemi 		:
+                        </span>
+                    </span><span new="" times="" serif;"="" roman",="">
+                        Kişisel
+                        verilerin belirli kriterlere göre yapılandırılarak işlendiği
+                        kayıt sistemini,
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            Veri
+                            sorumlusu 		:
+                        </span>
+                    </span><span new="" times="" serif;"="" roman",="">
+                        Kişisel
+                        verilerin işleme amaçlarını ve vasıtalarını belirleyen, veri
+                        kayıt sisteminin kurulmasından ve yönetilmesinden sorumlu olan
+                        gerçek veya tüzel kişiyi ifade eder.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            1.
+                            Kişisel Verilerin Korunması ve Rıza Metninin Amacı ve
+                            Şirketimizin Veri Sorumlusu Konumu:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Alışveriş
+                        sitemizin müşterilere ilişkin kişisel veriler bakımından 6698
+                        sayılı Kişisel Verilerin Korunması Kanunu ("Kanun”)
+                        kapsamında "veri sorumlusu” sıfatına sahip olup işbu Kişisel
+                        Verilerin Korunması ve Rıza Metni ile söz konusu Kanun uyarınca
+                        müşterilerin alışveriş sitemiz tarafından gerçekleştirilen
+                        kişisel veri işleme faaliyetleri hakkında aydınlatılması ve
+                        aşağıda 3. maddede belirtilen durumlar için açık rızalarının
+                        temini hedeflenmektedir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            3.
+                            Müşterilerin Açık Rızası Doğrultusunda İşlenecek Kişisel
+                            Veriler ve İşleme Amaçları:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kanun’un
+                        5/2 ile 6/3 maddesinde yer alan kişisel veri işleme şartlarının
+                        karşılanamadığı aşağıdaki durumlar için Alışveriş sitemiz
+                        tarafından kişisel verilerin işlenebilmesi için müşterilerin
+                        açık rızasının alınması gerekmektedir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            2.
+                            Müşterilere Ait Kişisel Verilerin İşlenme Amacı:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Müşterilere
+                        ait kişisel veriler aşağıda ve Kanun’un 5. ve 6. maddelerinde
+                        belirtilen kişisel veri işleme şartları ve amaçları
+                        çerçevesinde işlenmektedir. Müşterilere ait kişisel veriler;
+                    </span>
+                </p>
+                <ul>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Alışveriş
+                                sitemiz tarafından sunulan ürün ve hizmetlerden ilgili kişileri
+                                faydalandırmak için gerekli çalışmaların iş birimleri
+                                tarafından yapılması ve ilgili iş süreçlerinin yürütülmesi,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",=""></span><span new="" times="" serif;"="" roman",="">
+                                Alışveriş
+                                sitemiz tarafından yürütülen ticari faaliyetlerin
+                                gerçekleştirilmesi için ilgili iş birimleri tarafından gerekli
+                                çalışmaların yapılması ve buna bağlı iş süreçlerinin
+                                yürütülmesi,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Alışveriş
+                                sitemizin ticari ve/veya iş stratejilerinin planlanması ve icrası,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Alışveriş
+                                sitemiz ile iş ilişkisi içerisinde olan ilgili kişilerin hukuki,
+                                teknik ve ticari-iş güvenliğinin temini ile tarafımızın
+                                sunduğu ürün ve hizmetlerin ilgili kişilerin beğeni, kullanım
+                                alışkanlıkları ve ihtiyaçlarına göre özelleştirilerek
+                                ilgili kişilere önerilmesi ve tanıtılması için gerekli olan
+                                aktivitelerin planlanması ve icrası,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                İlgililerin
+                                olası hak ve alacak taleplerinin tesisi
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Yetkili
+                                kuruluşlara mevzuattan kaynaklı bilgi verilmesi
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Ziyaretçi
+                                kayıtlarının oluşturulması ve takibi
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Şirketimiz
+                                ve Şirketimiz adına şubelerimiz, çağrı merkezimiz, bağlı
+                                şirketlerimiz tarafından ya da internet sitelerimiz ile sosyal
+                                medya sayfalarımız veya ve bunlarla sınırlı olmamak üzere her
+                                türlü kanallar aracılığı ile Tüketicinin Korunması Hakkında
+                                Kanun, Perakende Ticaretin Düzenlenmesi Hakkında Kanun ve diğer
+                                yasal mevzuat kapsamında, yükümlülüklerin yerine getirilmesini
+                                sağlamak,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Müşterilere
+                                daha iyi hizmet verebilme, çeşitli avantajlar sağlayıp sunma,
+                                satış, pazarlama, bilgilendirme, promosyonlar hakkında bilgi
+                                verebilme, kampanya ve koşulları hakkında bilgi sağlama, anket,
+                                müşteri memnuniyet araştırmalarını yapabilme, satın alma
+                                işlemlerinizi sağlama hızlandırma, siparişlerinizi alma ve
+                                teslim edebilme,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Müşterilere
+                                yönelik kampanyaların oluşturulması, çapraz satış yapılması,
+                                hedef kitle belirlenmesi,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Müşteri
+                                hareketlerinin takip edilerek kullanıcı deneyimini arttırıcı
+                                faaliyetlerin yürütülmesi ve alışveriş sitemize ait internet
+                                sitesi ile mobil uygulamanın işleyişinin geliştirilmesi ve
+                                müşteri ihtiyaçlarına göre kişiselleştirilmesi, doğrudan ve
+                                doğrudan olmayan pazarlama, kişiye özel pazarlama ve yeniden
+                                pazarlama faaliyetlerinin yürütülmesi, kişiye özel
+                                segmentasyon, hedefleme, analiz ve şirket içi raporlama
+                                faaliyetlerinin yürütülmesi, pazar araştırmaları,
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <p align="justify">
+                            <span new="" times="" serif;"="" roman",="">
+                                Müşteri
+                                memnuniyeti aktivitelerinin planlanması ve icrası ile müşteri
+                                ilişkileri yönetimi süreçlerinin planlanması ve icrası
+                                amaçlarıyla dahil olmak üzere dahil olmak üzere alışveriş
+                                sitemizin ürün ve/veya hizmetlerinin satış ve pazarlama
+                                süreçlerinin planlanması ve icrası, alışveriş sitemizin
+                                sunduğu ürün ve/veya hizmetlere bağlılık oluşturulması
+                                ve/veya arttırılması süreçlerinin planlanması ve icrası
+                                kapsamında Müşteri’nin vereceği onayı doğrultusunda
+                                işlenebilecek ve işbu Kişisel Verilerin Korunması Metnin’nde
+                                belirtilen taraflarla paylaşılabilecektir.
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Alışveriş
+                        Sitemiz; online davranışsal reklamcılık ve pazarlama
+                        yapılabilmesi amacıyla siteye gelen kullanıcının üye olmasalar
+                        dahi sitedeki davranışlarını tarayıcıda bulunan bir cookie
+                        (çerez) ile ilişkilendirme ve görüntülenen sayfa sayısı,
+                        ziyaret süresi ve hedef tamamlama sayısı gibi metrikleri temel
+                        alan yeniden pazarlama listeleri tanımlama hakkını haizdir. Daha
+                        sonra bu kullanıcıya sitede ya da Görüntülü Reklam Ağı’ndaki
+                        diğer sitelerde, kullanıcıların ilgi alanlarına göre hedefe
+                        yönelik reklam içeriği gösterilebilir. Google AFS reklamlarının
+                        Alışveriş Sitemize yönlendirilmesi esnasında Google
+                        kullanıcıların tarayıcısına çerez yerleştirebilir veya
+                        bunlarda yer alan çerezleri okuyabilir veya bilgi toplamak amacı
+                        ile web işaretleri kullanabilir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            4.
+                            Müşterilere Ait Kişisel Verilerin Aktarımı:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Müşterilere
+                        ait kişisel veriler, alışveriş sitemiz tarafından sunulan ürün
+                        ve hizmetlerden ilgili kişileri faydalandırmak için gerekli
+                        çalışmaların iş birimleri tarafından yapılması ve ilgili iş
+                        süreçlerinin yürütülmesi, alışveriş sitemiz tarafından
+                        yürütülen ticari faaliyetlerin gerçekleştirilmesi için ilgili
+                        iş birimleri tarafından gerekli çalışmaların yapılması ve
+                        buna bağlı iş süreçlerinin yürütülmesi, alışveriş
+                        sitemizin ticari ve/veya iş stratejilerinin planlanması ve icrası,
+                        alışveriş sitemizin ve alışveriş sitemiz ile iş ilişkisi
+                        içerisinde olan ilgili kişilerin hukuki, teknik ve ticari-iş
+                        güvenliğinin temini ile alışveriş sitemizin sunduğu ürün ve
+                        hizmetlerin ilgili kişilerin beğeni, kullanım alışkanlıkları
+                        ve ihtiyaçlarına göre özelleştirilerek ilgili kişilere
+                        önerilmesi ve tanıtılması için gerekli olan aktivitelerin
+                        planlanması ve icrası da dahil olmak üzere Kanun’un 8. ve 9.
+                        maddelerinde belirtilen kişisel veri işleme şartları ve amaçları
+                        çerçevesinde Şirket yetkilileri, iştiraklerimiz, iş
+                        ortaklarımız, tedarikçilerimiz, hissedarlarımız, kanunen yetkili
+                        kamu kurum ve kuruluşları ile özel kurumlar ile
+                        paylaşılabilecektir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kullanıcının
+                        Ad ve İletişim Bilgileri, ödeme aşamasında onaylayacağı ödeme
+                        kuruluşu çerçeve sözleşmesi uyarınca ve 9 Ocak 2008 tarihli ve
+                        26751 sayılı Resmi Gazete’de yayımlanan Suç Gelirlerinin
+                        Aklanmasının ve Terörün Finansmanının Önlenmesine Dair
+                        Tedbirler Hakkında Yönetmelik uyarınca kimlik doğrulaması
+                        gerçekleştirilmesi amacıyla ödeme kuruluşlarıyla
+                        paylaşılabilecektir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Alışveriş
+                        Sitemiz, kişisel verileri yukarıda belirtilen amaçlar dahilinde,
+                        6698 sayılı Kanun’da öngörülen şartları sağlamak koşulu
+                        ile yurt içinde üçüncü kişilere aktarabileceği gibi yurt
+                        dışına da aktarabilecektir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p>
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            5.
+                            Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kişisel
+                        veriler, müşterilerden elektronik ortamda toplanmaktadır. Yukarıda
+                        belirtilen hukuki sebeplerle toplanan kişisel veriler Kanun’un 5.
+                        ve 6. maddelerinde ve bu Kişisel Verilerin Korunması Metninde
+                        belirtilen amaçlarla işlenebilmekte ve aktarılabilmektedir.
+                    </span>
+                </p>
+                <p>
+                    <br>
+                </p>
+                <p>
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            6.
+                            Kişisel Verilerin Saklanma Süreleri
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Alışveriş
+                        Sitemiz, ilgili kanunlarda ve mevzuatlarda öngörülmesi durumunda
+                        kişisel verileri bu mevzuatlarda belirtilen süre boyunca
+                        saklamaktadır.
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kişisel
+                        verilerin ne kadar süre boyunca saklanması gerektiğine ilişkin
+                        mevzuatta bir süre düzenlenmemişse, Kişisel Veriler Alışveriş
+                        Sitemiz’in o veriyi işlerken yürütülen faaliyet ile bağlı
+                        olarak Alışveriş Sitemiz’in uygulamaları ve ticari yaşamının
+                        teamülleri uyarınca işlenmesini gerektiren süre kadar işlenmekte
+                        daha sonra silinmekte, yok edilmekte veya anonim hale
+                        getirilmektedir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kişisel
+                        verilerin işlenme amacı sona ermiş; ilgili mevzuat ve Alışveriş
+                        Sitemiz’in belirlediği saklama sürelerinin de sonuna gelinmişse;
+                        kişisel veriler yalnızca olası hukuki uyuşmazlıklarda delil
+                        teşkil etmesi veya kişisel veriye bağlı ilgili hakkın ileri
+                        sürülebilmesi veya savunmanın tesis edilmesi amacıyla
+                        saklanabilmektedir. Buradaki sürelerin tesisinde bahsi geçen hakkın
+                        ileri sürülebilmesine yönelik zaman aşımı süreleri ile zaman
+                        aşımı sürelerinin geçmesine rağmen daha önce aynı konularda
+                        Alışveriş Sitemiz’e yöneltilen taleplerdeki örnekler esas
+                        alınarak saklama süreleri belirlenmektedir. Bu durumda saklanan
+                        kişisel verilere herhangi bir başka amaçla erişilmemekte ve ancak
+                        ilgili hukuki uyuşmazlıkta kullanılması gerektiği zaman ilgili
+                        kişisel verilere erişim sağlanmaktadır. Burada da bahsi geçen
+                        süre sona erdikten sonra kişisel veriler silinmekte, yok edilmekte
+                        veya anonim hale getirilmektedir.
+                    </span>
+                </p>
+                <p align="justify"><span new="" times="" serif;"="" roman",=""><span style="font-weight: bold;"></span></span></p>
+                <p align="justify">&nbsp;</p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        <span style="font-weight: bold;">
+                            7.
+                            Kişisel Veri Sahibi Olarak Müşterilerin Hakları:
+                        </span>
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Kanun’un
+                        11. maddesi uyarınca veri sahipleri; (i) kendileri ile ilgili
+                        kişisel veri işlenip işlenmediğini öğrenme, (ii) kişisel
+                        verileri işlenmişse buna ilişkin bilgi talep etme, (iii) kişisel
+                        verilerin işlenme amacını ve bunların amacına uygun kullanılıp
+                        kullanılmadığını öğrenme, (iv) yurt içinde veya yurt dışında
+                        kişisel verilerin aktarıldığı üçüncü kişileri bilme, (v)
+                        kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde
+                        bunların düzeltilmesini isteme ve bu kapsamda yapılan işlemin
+                        kişisel verilerin aktarıldığı üçüncü kişilere
+                        bildirilmesini isteme, (vi) Kanun ve ilgili diğer kanun hükümlerine
+                        uygun olarak işlenmiş olmasına rağmen, işlenmesini gerektiren
+                        sebeplerin ortadan kalkması hâlinde kişisel verilerin silinmesini
+                        veya yok edilmesini isteme ve bu kapsamda yapılan işlemin kişisel
+                        verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,
+                        (vii) işlenen verilerin münhasıran otomatik sistemler vasıtasıyla
+                        analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun
+                        ortaya çıkmasına itiraz etme ve (viii) kişisel verilerin kanuna
+                        aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde
+                        zararın giderilmesini talep etme haklarına sahiptir.
+                    </span>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        Söz
+                        konusu hakların kullanımına ilişkin talepler, kişisel veri
+                        sahipleri Alışveriş Sitemiz Tarafından 6698 sayılı Kanun
+                        Kapsamında belirtilen yöntemlerle iletilebilecektir. Alışveriş
+                        sitemiz söz konusu talepleri değerlendirerek 30 gün içerisinde
+                        sonuçlandıracaktır.
+                    </span>
+                </p>
+                <p align="justify">
+                    <br>
+                </p>
+                <p align="justify">
+                    <span new="" times="" serif;"="" roman",="">
+                        İşbu
+                        form üzerinde yer verilen hususlar ile ilgili olarak, hukuki ve
+                        teknolojik gelişmeler doğrultusunda değişiklikler söz konusu
+                        olabilecektir.
+                    </span>
+                </p>
+            </div>
+        </section>
+    </div>
+</div>

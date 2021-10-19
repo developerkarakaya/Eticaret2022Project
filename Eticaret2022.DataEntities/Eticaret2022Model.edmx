@@ -66,6 +66,16 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="KategoriHref" Type="nvarchar" MaxLength="200" />
+          <Property Name="KategoriUstId" Type="int" />
+          <Property Name="IsMenu" Type="int" />
+        </EntityType>
         <EntityType Name="Urunler">
           <Key>
             <PropertyRef Name="Id" />
@@ -138,6 +148,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -270,6 +281,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="Urunler" EntityType="Eticaret2022Model.Urunler" />
+          <EntitySet Name="Kategoriler" EntityType="Eticaret2022Model.Kategoriler" />
         </EntityContainer>
         <EntityType Name="Urunler">
           <Key>
@@ -279,6 +291,16 @@
           <Property Name="UrunAdi" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="UrunAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UrunFiyat" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="KategoriHref" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KategoriUstId" Type="Int32" />
+          <Property Name="IsMenu" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -355,6 +377,17 @@
                 <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
                 <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
                 <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="Eticaret2022Model.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="IsMenu" ColumnName="IsMenu" />
+                <ScalarProperty Name="KategoriUstId" ColumnName="KategoriUstId" />
+                <ScalarProperty Name="KategoriHref" ColumnName="KategoriHref" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

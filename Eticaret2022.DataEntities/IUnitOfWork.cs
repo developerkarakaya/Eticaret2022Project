@@ -10,6 +10,7 @@ namespace Eticaret2022.DataEntities
     public interface IUnitOfWork:IDisposable
     {
          IUrunlerRepository UrunlerRepository { get; }
+        IKategorilerRepository KategorilerRepository { get; }
         int Complete();
     }
 }

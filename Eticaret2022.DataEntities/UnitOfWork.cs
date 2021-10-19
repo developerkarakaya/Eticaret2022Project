@@ -17,9 +17,12 @@ namespace Eticaret2022.DataEntities
         {
             _context = context;
             UrunlerRepository = new UrunlerRepository(_context);
+            KategorilerRepository = new KategorilerRepository(_context);
 
         }
         public IUrunlerRepository UrunlerRepository { get; private set; }
+        public IKategorilerRepository KategorilerRepository { get; private set; }
+
 
         public int Complete()
         {

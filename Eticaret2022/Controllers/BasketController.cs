@@ -14,9 +14,6 @@ namespace Eticaret2022.Controllers
         {
             return View(GetBasket());
         }
-
-
-
         [HttpPost]
         public JsonResult AddProduct(int Id, int adet)
         {
@@ -28,7 +25,6 @@ namespace Eticaret2022.Controllers
                     var Product = uow.UrunlerRepository.GetById(Id);
                     if (Product != null)
                     {
-
                         GetBasket().AddProduct(Product, adet);
                         return Json(new { rtnValue = true, message = "Ürün Sepete Eklendi !" });
                     }
