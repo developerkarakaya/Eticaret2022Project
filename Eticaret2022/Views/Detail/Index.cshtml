@@ -1,0 +1,239 @@
+﻿@model Eticaret2022.DataEntities.Urunler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" data-selector="product-id" name="product-id" value="9061">
+<div id="product-detail-container">
+
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <div id="breadcrumbs">
+                <ol vocab="http://schema.org/" typeof="BreadcrumbList">
+                    <li property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" href="/">
+                            <span property="name">
+                                <span>Anasayfa</span>
+                            </span>
+                        </a>
+                        <meta property="position" content="1">
+                    </li>
+                    <li property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" href="/kategori/kuruyemis-cesitleri-fiyatlari">
+                            <span property="name">
+                                <i></i>
+                                <span>KURUYEMİŞ</span>
+                            </span>
+                        </a>
+                        <meta property="position" content="2">
+                    </li>
+                    <li property="itemListElement" typeof="ListItem">
+                        <a property="item" typeof="WebPage" href="/kategori/karisik-kuruyemis">
+                            <span property="name">
+                                <i></i>
+                                <span>Karışık Kuruyemiş</span>
+                            </span>
+                        </a>
+                        <meta property="position" content="3">
+                    </li>
+                    <li>
+                        <span>
+                            <i></i>
+                            <span>@Model.UrunAdi</span>
+                        </span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <a class="btn btn-success" href="/" style="float:right" >Ürünlere Git</a>
+    </div>
+
+    <div class="product-area-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <div class="product-left">
+                        <div class="product-image">
+                            <div id="product-primary-image">
+                                <img id="primary-image" alt="@Model.UrunAdi" src="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262" data-zoom-image="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262">
+                            </div>
+                        </div>
+                        <div id="product-thumb-image" class="slick-initialized slick-slider">
+                            <div class="slick-list draggable">
+                                <div class="slick-track" style="opacity: 1; width: 96px; transform: translate3d(0px, 0px, 0px);">
+                                    <div class="thumb-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 96px;" tabindex="0">
+                                        <div>
+                                            <a href="#" data-image="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262" data-zoom-image="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262" tabindex="0" class="zoomGalleryActive">
+                                                <img src="~/Site/Content/au/35/myassets/products/059/karisik-kapak_min.jpg?revision=1632401262" alt="@Model.UrunAdi">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-5">
+                    <div class="product-right">
+                        <div class="product-title">
+                            <h1>@Model.UrunAdi </h1>
+                        </div>
+
+                        <div class="product-price-container">
+                            <div class="product-price">
+                                <div class="product-price-old">
+                                    @string.Format("{0:C2}", Model.UrunFiyat)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-list-container">
+                            <div class="product-list-row product-categories">
+                                <div class="product-list-title">Kategori</div>
+                                <div class="product-list-content">
+                                    <span>
+                                        <a href="/kategori/karisik-kuruyemis" title="&quot;Karışık Kuruyemiş&quot; kategori etiketine sahip diğer ürünler">Karışık Kuruyemiş</a>
+                                        <span>, </span>																							<a href="/kategori/kina-cerezi" title="&quot;Kına Çerezi&quot; kategori etiketine sahip diğer ürünler">Kına Çerezi</a>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="product-cart-buttons" style="display: flex;">
+                            <div class="product-qty-wrapper">
+                                <div class="product-qty" data-selector="qty-wrapper">
+                                    <a href="javascript:void(0)" data-selector="decrease-qty" aria-label="Decrease Quantity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                        </svg>
+                                    </a>
+                                    <div>
+                                        <input type="text" id="qty-input" data-selector="qty" data-context="detail" data-stocktype="Piece" data-stockamount="99" value="1" aria-label="Quantity" autocomplete="off">
+                                    </div>
+                                    <a href="javascript:void(0)" data-selector="increase-qty" aria-label="Increase Quantity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-buttons-wrapper">
+                                <div class="product-buttons-row">
+                                    <div>
+                                        <a href="javascript:void(0);" onclick="basketEkle(@Model.Id,0)" class="add-to-cart-button add-to-cart-default-button" data-selector="add-to-cart" data-context="detail" data-product-id="9061">
+                                            Sepete Ekle
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-bottom-buttons">
+
+                            <div>
+                                <div id="product-user-buttons">
+                                    <div>
+                                        <a href="javascript:void(0);" class="add-my-favorites" data-selector="add-my-favorites" data-product-id="9061" aria-label="Add To Favorites">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg>
+                                            <span data-favorite-product="Favori Ürün" data-add-to-favorites="Favorilerime Ekle"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+
+                                <div class="alert alert-success" role="alert">
+                                   Ödeme imkanlarımız ;  <br />
+
+                                                         <strong>1-</strong> Sanal Pos İle Ödeme <br />
+                                                         <strong>2-</strong> Iban İle Ödeme (Iban ödemesi yapabilmek için <a href="/BankaBilgilerimiz">Buradan</a> Iban bilgilerimize ulaşabilirsiniz.) <br />
+                                                         <strong>3-</strong> Kapıda Ödeme <br />
+                                                         <strong>4-</strong> Whatshapp Sipariş <br />
+                                
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-detail-tab">
+                <div class="product-detail-tab-header">
+                    <div class="row flex-nowrap">
+                        <div class="col-auto col-lg px-1 px-lg-4 active" data-tab-index="1"><a href="javascript:void(0);">Ürün Bilgisi</a></div>
+                        <div class="col-auto col-lg px-1 px-lg-4" data-tab-index="2"><a href="javascript:void(0);">Yorumlar</a></div>
+                    </div>
+                </div>
+                <div class="product-detail-tab-content">
+                    <div class="active" data-tab-content="1">
+                        <div class="product-detail">
+
+                            <div>Mevcut Ürün Hakkında;</div>
+                            <br />
+                            @Model.UrunAciklama
+
+                        </div>
+                    </div>
+                    <div class="col-12" data-tab-content="2">
+                        <div id="product-detail-comments">
+                            <div class="product-detail-comments-info">
+                                <div class="row">
+                                    <div class="col-12">
+                                        Bu ürüne ilk yorumu siz yapın!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-detail-comments-buttons">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <div class="product-add-comment-button">
+                                            <a href="javascript:void(0);" class="btn btn-primary" data-selector="add-comment">
+                                                Yorum Yaz
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" data-tab-content="3"></div>
+
+                </div>
+            </div>
+            <div class="product-information-area">
+
+                <div class="product-information-content">
+                    <a href="#" class="product-information-url btn btn-link">
+                        Detaylı bilgi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function basketEkle(Id, adet) {
+        var count = $('#qty-input').val();
+        $.ajax({
+            method: "Post",
+            url: "/Basket/AddProduct",
+            data: { Id: Id, adet: count },
+            dataType: 'json',
+            success: function (data) {
+                if (data.rtnValue == true) {
+                    ShowMessage("Ürün Başarıyla Sepete Eklenmiştir.", "s");
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2000);
+                }
+            }
+        });
+
+    }
+</script>

@@ -21,6 +21,15 @@ namespace Eticaret2022
             );
 
             routes.MapRoute(
+                name: "ProductDetailRoute",
+                url: "{Title}-{id}",
+                defaults: new { controller = "Detail", action = "Index" },
+                 namespaces: new[] { "Eticaret2022.Controllers" }
+
+                );
+
+
+            routes.MapRoute(
                 name: "girisRoute",
                 url: "girisyap",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional },

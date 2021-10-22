@@ -171,6 +171,7 @@
     <Compile Include="Areas\yonetim\yonetimAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
@@ -2566,6 +2567,7 @@
     <Content Include="Views\Home\deneme.cshtml" />
     <Content Include="Views\UserAccount\_userAccountLayout.cshtml" />
     <Content Include="Views\UserAccount\ProfilBilgileri.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
